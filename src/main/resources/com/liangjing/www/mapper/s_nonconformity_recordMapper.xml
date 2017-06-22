@@ -17,6 +17,10 @@
     id, today, batch_number, description_goods, contract, manufacturer, quality_problem, 
     inspector_suggested, audit_conclusion, event_tracking
   </sql>
+
+  <select id="getAll" resultMap="BaseResultMap">
+    SELECT * FROM s_nonconformity_record
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

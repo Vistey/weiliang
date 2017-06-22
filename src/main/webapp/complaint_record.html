@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LiangJing | 不合格产品管理</title>
+    <title>LiangJing | 隐形眼镜质量投诉处理管理</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
     <!-- FooTable -->
@@ -143,7 +143,7 @@
         </div>
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
-                <h2>不合格产品管理</h2>
+                <h2>隐形眼镜质量投诉处理管理</h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href="index.html">首页</a>
@@ -152,7 +152,7 @@
                         <a>管理列表</a>
                     </li>
                     <li class="active">
-                        <strong>不合格产品管理</strong>
+                        <strong>隐形眼镜质量投诉处理管理</strong>
                     </li>
                 </ol>
             </div>
@@ -167,7 +167,7 @@
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
 
-                            <h5>总购进，入库验收记录</h5>
+                            <h5>隐形眼镜质量投诉处理记录</h5>
                             <div class="ibox-tools">
                                 <a class="collapse-link">
                                     <i class="fa fa-chevron-up"></i>
@@ -199,19 +199,19 @@
                                 </thead>
                                 <tbody id="allList">
                                 <tr>
-                                    <td>Project - This is example of project</td>
-                                    <td>Patrick Smith</td>
-                                    <td>0800 051213</td>
-                                    <td>Inceptos Hymenaeos Ltd</td>
-                                    <td>0.52/1.561</td>
-                                    <td>0800 051213</td>
-                                    <td>0800 051213</td>
-                                    <td>0800 051213</td>
-                                    <td>0800 051213</td>
-                                    <td>0800 051213</td>
-                                    <td>0800 051213</td>
-                                    <td>0800 051213</td>
-                                    <td>0800 051213</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
                                 </tr>
                                 </tbody>
                                 <tfoot>
@@ -261,7 +261,7 @@
 
     $(function () {
         $.ajax({
-            url: 'recordController/getNonconformity.do',
+            url: 'recordController/getComplaintRecord.do',
             success: function (data) {
                 console.log(data);
                 var json = jQuery.parseJSON(data);

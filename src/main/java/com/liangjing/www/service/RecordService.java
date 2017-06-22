@@ -29,7 +29,16 @@ public class RecordService {
   private S_cultivate_personlistMapper cultivate_personlistMapper;
 
   @Resource
+  private S_nonconformity_recordMapper nonconformity_record;
+
+  @Resource
   private S_returned_goodsMapper returned_goodsMapper;
+
+  @Resource
+  private S_complaint_recordMapper complaint_recordMapper;
+
+  @Resource
+  private S_after_sale_serviceMapper after_sale_serviceMapper;
 
 
   /**
@@ -109,8 +118,6 @@ public class RecordService {
     return cultivateMatching(sultivateList, personList);
   }
 
-
-
   /**
    * 培训计划表与员工数据匹配（一对多表赋值）
    *
@@ -140,7 +147,7 @@ public class RecordService {
    * @return {@link S_nonconformity_record} 不合格产品记录
    */
   public List<S_nonconformity_record> getNonconformity() {
-    return null;
+    return nonconformity_record.getAll();
   }
 
   /**
@@ -151,5 +158,19 @@ public class RecordService {
     return returned_goodsMapper.getAll();
   }
 
+  /**
+   * 获取所有隐形眼镜质量投诉处理记录
+   * @return {@link S_complaint_record} 隐形眼镜质量投诉处理记录
+   */
+  public List<S_complaint_record> getComplaintRecord() {
+    return complaint_recordMapper.getAll();
+  }
 
+  /**
+   * 获取所有售后服务记录
+   * @return {@link S_after_sale_service} 售后服务记录
+   */
+  public List<S_after_sale_service> getAfterSaleService() {
+    return after_sale_serviceMapper.getAll();
+  }
 }

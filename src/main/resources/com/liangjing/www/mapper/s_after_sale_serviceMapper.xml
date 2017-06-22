@@ -14,6 +14,10 @@
   <sql id="Base_Column_List">
     id, date, customer, treatment_mode, processing_sheet, handlers, close_date, remarks
   </sql>
+
+  <select id="getAll" resultMap="BaseResultMap">
+    SELECT * FROM s_after_sale_service
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

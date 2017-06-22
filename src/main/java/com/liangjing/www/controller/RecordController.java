@@ -142,7 +142,25 @@ public class RecordController {
     return service.getReturnedGoods();
   }
 
-  //public List<>
+  /**
+   * 获取所有隐形眼镜质量投诉处理记录
+   * @return {@link S_complaint_record} 隐形眼镜质量投诉处理记录
+   */
+  @RequestMapping("/getComplaintRecord.do")
+  @ResponseBody
+  public List<S_complaint_record> getComplaintRecord(){
+    return service.getComplaintRecord();
+  }
+
+  /**
+   * 获取所有售后服务记录
+   * @return {@link S_after_sale_service} 售后服务记录
+   */
+  @RequestMapping("/getAfterSaleService.do")
+  @ResponseBody
+  public List<S_after_sale_service> getAfterSaleService(){
+    return service.getAfterSaleService();
+  }
 
 }
 

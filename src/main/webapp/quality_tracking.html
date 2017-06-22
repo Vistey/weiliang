@@ -42,8 +42,8 @@
                         <li><a href="cultivate_record.html">培训计划表</a></li>
                         <li><a href="nonconforming_product.html">不合格产品记录表</a></li>
                         <li><a href="returned_goods.html">顾客退片/换片记录单</a></li>
-                        <li><a href="dashboard_5.html">隐形眼镜质量投诉处理记录</a></li>
-                        <li><a href="dashboard_5.html">售后服务记录表</a></li>
+                        <li><a href="complaint_record.html">隐形眼镜质量投诉处理记录</a></li>
+                        <li><a href="after_sale.html">售后服务记录表</a></li>
                     </ul>
                 </li>
                 <li>
@@ -178,27 +178,35 @@
                             <table class="footable table table-stripped" data-page-size="8" data-filter=#filter>
                                 <thead>
                                 <tr>
-                                    <th>日期</th>
-                                    <th data-hide="phone">商品类型</th>
-                                    <th data-hide="phone">生产厂家</th>
-                                    <th>产品名称</th>
-                                    <th data-hide="phone">批号</th>
-                                    <th data-hide="phone">规格型号</th>
-                                    <th data-hide="phone">顾客姓名</th>
-                                    <th data-hide="phone">销售数量</th>
+                                    <th>批号</th>
+                                    <th >产品名称</th>
+                                    <th data-hide="phone">规格</th>
                                     <th data-hide="phone">生产日期</th>
-                                    <th data-hide="phone">有效期</th>
-                                    <th data-hide="phone">注册证号</th>
-                                    <th>总售价</th>
-                                    <th data-hide="phone">确认人</th>
+                                    <th>有效期</th>
+                                    <th>供应商</th>
+                                    <th data-hide="phone">出货日期</th>
+                                    <th data-hide="phone">出货数量</th>
+                                    <th data-hide="phone">客户名称</th>
+                                    <th data-hide="phone">客户反应内容</th>
                                 </tr>
                                 </thead>
                                 <tbody id="allList">
-
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <td colspan="13">
+                                    <td colspan="10">
                                         <ul class="pagination pull-right"></ul>
                                     </td>
                                 </tr>
@@ -247,16 +255,15 @@
                 console.log(data);
                 var tmp;
                 var json = jQuery.parseJSON(data);
-/*
                 for (var i = 0; i < json.length; i++) {
                     tmp += '<tr class="gradeX">' +
-                        '<td>' + json[i].saleDate + '</td> ' +
-                        '<td>' + json[i].commodityType + '</td> ' +
-                        '<td>' + json[i].companyName + '</td> ' +
-                        '<td>' + json[i].productName + '</td> ' +
                         '<td>' + json[i].batchNumber + '</td> ' +
-                        '<td>' + json[i].specificationModel + '</td> ' +
-                        '<td>' + json[i].customerName + '</td> ' +
+                        '<td>' + json[i].productName + '</td> ' +
+                        '<td>' + json[i].specifications + '</td> ' +
+                        '<td>' + json[i].productionDate + '</td> ' +
+                        '<td>' + json[i].termOfValidity + '</td> ' +
+                        '<td>' + json[i].companyName + '</td> ' +
+                        '<td>' + json[i].saleDate + '</td> ' +
                         '<td>' + json[i].salesVolumes + '</td> ' +
                         '<td>' + json[i].productionDate + '</td> ' +
                         '<td>' + json[i].termOfValidity + '</td> ' +
@@ -266,7 +273,6 @@
                         '</tr>';
                 }
                 $('#allList').html(tmp);
-*/
             }
         })
     })

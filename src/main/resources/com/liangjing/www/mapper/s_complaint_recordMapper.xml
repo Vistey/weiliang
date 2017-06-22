@@ -34,6 +34,10 @@
     wear_sight_l, wear_sight_r, customer_complaint_content, store_examination_result, 
     glasses_examination_result, procurator, date
   </sql>
+
+  <select id="getAll" resultMap="BaseResultMap">
+    SELECT * FROM s_complaint_record
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
