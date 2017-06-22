@@ -1,8 +1,12 @@
 package com.liangjing.www.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class S_returned_goods {
+
     private Integer id;
 
     private String customerPhone;
@@ -19,23 +23,22 @@ public class S_returned_goods {
 
     private String glassesDegreeR;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date opticianDate;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date returnedDate;
 
     private String handler;
 
     private String returnedReason;
 
-    private String findings;
+    private String handlerFindings;
 
-    private String glassesLDegree;
+    private String qualityController;
 
-    private String glassesRDegree;
-
-    private Date dateOptician;
-
-    private Date dateReturned;
 
     public Integer getId() {
         return id;
@@ -50,7 +53,7 @@ public class S_returned_goods {
     }
 
     public void setCustomerPhone(String customerPhone) {
-        this.customerPhone = customerPhone == null ? null : customerPhone.trim();
+        this.customerPhone = customerPhone;
     }
 
     public String getCustomerPostcard() {
@@ -58,7 +61,7 @@ public class S_returned_goods {
     }
 
     public void setCustomerPostcard(String customerPostcard) {
-        this.customerPostcard = customerPostcard == null ? null : customerPostcard.trim();
+        this.customerPostcard = customerPostcard;
     }
 
     public String getCustomerAddress() {
@@ -66,7 +69,7 @@ public class S_returned_goods {
     }
 
     public void setCustomerAddress(String customerAddress) {
-        this.customerAddress = customerAddress == null ? null : customerAddress.trim();
+        this.customerAddress = customerAddress;
     }
 
     public String getBatchNumberL() {
@@ -74,7 +77,7 @@ public class S_returned_goods {
     }
 
     public void setBatchNumberL(String batchNumberL) {
-        this.batchNumberL = batchNumberL == null ? null : batchNumberL.trim();
+        this.batchNumberL = batchNumberL;
     }
 
     public String getBatchNumberR() {
@@ -82,7 +85,7 @@ public class S_returned_goods {
     }
 
     public void setBatchNumberR(String batchNumberR) {
-        this.batchNumberR = batchNumberR == null ? null : batchNumberR.trim();
+        this.batchNumberR = batchNumberR;
     }
 
     public String getGlassesDegreeL() {
@@ -90,7 +93,7 @@ public class S_returned_goods {
     }
 
     public void setGlassesDegreeL(String glassesDegreeL) {
-        this.glassesDegreeL = glassesDegreeL == null ? null : glassesDegreeL.trim();
+        this.glassesDegreeL = glassesDegreeL;
     }
 
     public String getGlassesDegreeR() {
@@ -98,7 +101,7 @@ public class S_returned_goods {
     }
 
     public void setGlassesDegreeR(String glassesDegreeR) {
-        this.glassesDegreeR = glassesDegreeR == null ? null : glassesDegreeR.trim();
+        this.glassesDegreeR = glassesDegreeR;
     }
 
     public Date getOpticianDate() {
@@ -122,7 +125,7 @@ public class S_returned_goods {
     }
 
     public void setHandler(String handler) {
-        this.handler = handler == null ? null : handler.trim();
+        this.handler = handler;
     }
 
     public String getReturnedReason() {
@@ -130,46 +133,22 @@ public class S_returned_goods {
     }
 
     public void setReturnedReason(String returnedReason) {
-        this.returnedReason = returnedReason == null ? null : returnedReason.trim();
+        this.returnedReason = returnedReason;
     }
 
-    public String getFindings() {
-        return findings;
+    public String getHandlerFindings() {
+        return handlerFindings;
     }
 
-    public void setFindings(String findings) {
-        this.findings = findings == null ? null : findings.trim();
+    public void setHandlerFindings(String handlerFindings) {
+        this.handlerFindings = handlerFindings;
     }
 
-    public String getGlassesLDegree() {
-        return glassesLDegree;
+    public String getQualityController() {
+        return qualityController;
     }
 
-    public void setGlassesLDegree(String glassesLDegree) {
-        this.glassesLDegree = glassesLDegree == null ? null : glassesLDegree.trim();
-    }
-
-    public String getGlassesRDegree() {
-        return glassesRDegree;
-    }
-
-    public void setGlassesRDegree(String glassesRDegree) {
-        this.glassesRDegree = glassesRDegree == null ? null : glassesRDegree.trim();
-    }
-
-    public Date getDateOptician() {
-        return dateOptician;
-    }
-
-    public void setDateOptician(Date dateOptician) {
-        this.dateOptician = dateOptician;
-    }
-
-    public Date getDateReturned() {
-        return dateReturned;
-    }
-
-    public void setDateReturned(Date dateReturned) {
-        this.dateReturned = dateReturned;
+    public void setQualityController(String qualityController) {
+        this.qualityController = qualityController;
     }
 }

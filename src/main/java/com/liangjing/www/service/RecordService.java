@@ -129,10 +129,10 @@ public class RecordService {
     int i = 0;
     int j = 0;
     while (i < cultivateRecord.size() && j < cultivatePersonlist.size()) {
-      if ((int) cultivateRecord.get(i).getId() == cultivatePersonlist.get(j).getId()) {
+      if ((int) cultivateRecord.get(i).getId() == cultivatePersonlist.get(j).getCultivateId()) {
         cultivateRecord.get(i).addPersonList(cultivatePersonlist.get(j));
         j++;
-      } else if ((int) cultivateRecord.get(i).getId() > cultivatePersonlist.get(j).getId()) {
+      } else if ((int) cultivateRecord.get(i).getId() > cultivatePersonlist.get(j).getCultivateId()) {
         j++;
       } else {
         i++;

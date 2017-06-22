@@ -1,13 +1,19 @@
 package com.liangjing.www.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class S_after_sale_service {
+
     private Integer id;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date date;
 
-    private String customer;
+    private String customerContent;
 
     private String treatmentMode;
 
@@ -15,6 +21,8 @@ public class S_after_sale_service {
 
     private String handlers;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date closeDate;
 
     private String remarks;
@@ -35,12 +43,12 @@ public class S_after_sale_service {
         this.date = date;
     }
 
-    public String getCustomer() {
-        return customer;
+    public String getCustomerContent() {
+        return customerContent;
     }
 
-    public void setCustomer(String customer) {
-        this.customer = customer == null ? null : customer.trim();
+    public void setCustomerContent(String customerContent) {
+        this.customerContent = customerContent;
     }
 
     public String getTreatmentMode() {
@@ -48,7 +56,7 @@ public class S_after_sale_service {
     }
 
     public void setTreatmentMode(String treatmentMode) {
-        this.treatmentMode = treatmentMode == null ? null : treatmentMode.trim();
+        this.treatmentMode = treatmentMode;
     }
 
     public String getProcessingSheet() {
@@ -56,7 +64,7 @@ public class S_after_sale_service {
     }
 
     public void setProcessingSheet(String processingSheet) {
-        this.processingSheet = processingSheet == null ? null : processingSheet.trim();
+        this.processingSheet = processingSheet;
     }
 
     public String getHandlers() {
@@ -64,7 +72,7 @@ public class S_after_sale_service {
     }
 
     public void setHandlers(String handlers) {
-        this.handlers = handlers == null ? null : handlers.trim();
+        this.handlers = handlers;
     }
 
     public Date getCloseDate() {
@@ -80,6 +88,6 @@ public class S_after_sale_service {
     }
 
     public void setRemarks(String remarks) {
-        this.remarks = remarks == null ? null : remarks.trim();
+        this.remarks = remarks;
     }
 }

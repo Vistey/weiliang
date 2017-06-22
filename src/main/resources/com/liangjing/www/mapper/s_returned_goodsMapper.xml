@@ -14,16 +14,14 @@
     <result column="returned_date" jdbcType="DATE" property="returnedDate" />
     <result column="handler" jdbcType="VARCHAR" property="handler" />
     <result column="returned_reason" jdbcType="VARCHAR" property="returnedReason" />
-    <result column="findings" jdbcType="VARCHAR" property="findings" />
-    <result column="glasses_l_degree" jdbcType="VARCHAR" property="glassesLDegree" />
-    <result column="glasses_r_degree" jdbcType="VARCHAR" property="glassesRDegree" />
-    <result column="date_optician" jdbcType="DATE" property="dateOptician" />
-    <result column="date_returned" jdbcType="DATE" property="dateReturned" />
+    <result column="handler_findings" jdbcType="VARCHAR" property="handlerFindings" />
+    <result column="quality_controller" jdbcType="VARCHAR" property="qualityController" />
+
   </resultMap>
   <sql id="Base_Column_List">
     id, customer_phone, customer_postcard, customer_address, batch_number_l, batch_number_r, 
     glasses_degree_l, glasses_degree_r, optician_date, returned_date, handler, returned_reason, 
-    findings, glasses_l_degree, glasses_r_degree, date_optician, date_returned
+    handler_findings, quality_controller
   </sql>
   <select id="getAll" resultMap="BaseResultMap">
     SELECT * FROM s_returned_goods

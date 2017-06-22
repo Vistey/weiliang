@@ -167,7 +167,7 @@
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
 
-                            <h5>总购进，入库验收记录</h5>
+                            <h5>售后服务记录表</h5>
                             <div class="ibox-tools">
                                 <a class="collapse-link">
                                     <i class="fa fa-chevron-up"></i>
@@ -179,21 +179,13 @@
                             <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
                                 <thead>
                                 <tr>
-                                    <th>商品类型</th>
-                                    <th>进货日期</th>
-                                    <th data-hide="phone">验货日期</th>
-                                    <th>产品名称</th>
-                                    <th data-hide="phone">生产商/供应商</th>
-                                    <th data-hide="phone">顶焦度</th>
-                                    <th data-hide="phone">中文标识</th>
-                                    <th data-hide="phone">批号</th>
-                                    <th data-hide="phone">进货数量</th>
-                                    <th data-hide="phone">包装完整度</th>
-                                    <th data-hide="phone">生产日期</th>
-                                    <th data-hide="phone">有效期</th>
-                                    <th data-hide="phone">验收结论</th>
-                                    <th data-hide="phone">验收确认人</th>
-                                    <th>总进货价</th>
+                                    <th>日期</th>
+                                    <th>顾客内容</th>
+                                    <th>处理方式</th>
+                                    <th>处理单编号</th>
+                                    <th>处理员</th>
+                                    <th>结案日期</th>
+                                    <th>备注</th>
                                     <!--<th data-hide="all">删除</th><button class="btn btn-w-m btn-danger btn-xs">删除</button>-->
                                 </tr>
                                 </thead>
@@ -206,17 +198,11 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
                                 </tr>
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <td colspan="14">
+                                    <td colspan="7">
                                         <ul class="pagination pull-right"></ul>
                                     </td>
                                 </tr>
@@ -237,7 +223,6 @@
 
     </div>
 </div>
-
 
 <!-- Mainly scripts -->
 <script src="js/jquery-2.1.1.js"></script>
@@ -266,34 +251,18 @@
                 console.log(data);
                 var json = jQuery.parseJSON(data);
                 var tmp;
-/*
                 for (var i = 0; i < json.length; i++) {
                     tmp += '<tr>' +
-                        '<td>' + json[i].commodityType + '</td> ' +
-                        '<td>' + json[i].purchaseDate + '</td> ' +
-                        '<td>' + json[i].inspectionDate + '</td> ' +
-                        '<td>' + json[i].productName + '</td> ' +
-                        '<td>' + json[i].companyName + '</td> ' +
-                        '<td>' + json[i].vertexFocus + '</td> ' +
-                        '<td>' + json[i].chineseLogo + '</td> ' +
-                        '<td>' + json[i].batchNumber + '</td> ' +
-                        '<td>' + json[i].quantityPurchased + '</td> ';
-                    if (json[i].packageIntegrity === 1) {
-                        tmp += '<td>完整</td> ';
-                    } else if (json[i].packageIntegrity === 2) {
-                        tmp += '<td>轻微破损</td> ';
-                    } else {
-                        tmp += '<td>损坏</td> ';
-                    }
-                    tmp += '<td>' + json[i].productionDate + '</td> ' +
-                        '<td>' + json[i].termOfValidity + '</td> ' +
-                        '<td>' + json[i].acceptanceConclusion + '</td> ' +
-                        '<td>' + json[i].confirmingPerson + '</td> ' +
-                        '<td>' + json[i].buyingPrice + '<td> ' +
+                        '<td>' + json[i].date + '</td>' +
+                        '<td>' + json[i].customerContent + '</td>' +
+                        '<td>' + json[i].treatmentMode + '</td>' +
+                        '<td>' + json[i].processingSheet + '</td>' +
+                        '<td>' + json[i].handlers + '</td>' +
+                        '<td>' + json[i].closeDate + '</td>' +
+                        '<td>' + json[i].remarks + '</td>' +
                         '</tr>';
                 }
                 $('#allList').html(tmp);
-*/
             }
         })
     });

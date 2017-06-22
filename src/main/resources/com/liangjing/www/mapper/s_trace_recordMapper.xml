@@ -15,6 +15,7 @@
     <result column="production_date" jdbcType="DATE" property="productionDate" />
     <result column="term_of_validity" jdbcType="DATE" property="termOfValidity" />
     <result column="sale_date" jdbcType="DATE" property="saleDate" />
+    <result column="sales_volumes" jdbcType="VARCHAR" property="salesVolumes" />
     <result column="customer_name" jdbcType="VARCHAR" property="customerName" />
   </resultMap>
   <sql id="Base_Column_List">

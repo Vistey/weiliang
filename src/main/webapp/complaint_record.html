@@ -179,26 +179,38 @@
                             <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
                                 <thead>
                                 <tr>
-                                    <th>商品类型</th>
-                                    <th>进货日期</th>
-                                    <th data-hide="phone">验货日期</th>
-                                    <th>产品名称</th>
-                                    <th data-hide="phone">生产商/供应商</th>
-                                    <th data-hide="phone">顶焦度</th>
-                                    <th data-hide="phone">中文标识</th>
-                                    <th data-hide="phone">批号</th>
-                                    <th data-hide="phone">进货数量</th>
-                                    <th data-hide="phone">包装完整度</th>
-                                    <th data-hide="phone">生产日期</th>
-                                    <th data-hide="phone">有效期</th>
-                                    <th data-hide="phone">验收结论</th>
-                                    <th data-hide="phone">验收确认人</th>
-                                    <th>总进货价</th>
+                                    <th>顾客姓名</th>
+                                    <th>联系方式</th>
+                                    <th>商店名称</th>
+                                    <th>联系方式</th>
+                                    <th>购买日期</th>
+                                    <th>投诉日期</th>
+                                    <th>镜片品牌及型号</th>
+                                    <th>镜片数量</th>
+                                    <th>标示度数</th>
+                                    <th>镜片批号</th>
+                                    <th>佩戴历</th>
+                                    <th>原配品牌型号</th>
+                                    <th>原眼镜度数（L/R）</th>
+                                    <th>验光结果（L/R）</th>
+                                    <th>佩戴后视力（L/R）</th>
+                                    <th>客户投诉内容</th>
+                                    <th>商店检查结果</th>
+                                    <th>镜片检查结果</th>
+                                    <th>检查员</th>
+                                    <th>日期</th>
                                     <!--<th data-hide="all">删除</th><button class="btn btn-w-m btn-danger btn-xs">删除</button>-->
                                 </tr>
                                 </thead>
                                 <tbody id="allList">
                                 <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -266,34 +278,37 @@
                 console.log(data);
                 var json = jQuery.parseJSON(data);
                 var tmp;
-/*
                 for (var i = 0; i < json.length; i++) {
                     tmp += '<tr>' +
-                        '<td>' + json[i].commodityType + '</td> ' +
-                        '<td>' + json[i].purchaseDate + '</td> ' +
-                        '<td>' + json[i].inspectionDate + '</td> ' +
-                        '<td>' + json[i].productName + '</td> ' +
-                        '<td>' + json[i].companyName + '</td> ' +
-                        '<td>' + json[i].vertexFocus + '</td> ' +
-                        '<td>' + json[i].chineseLogo + '</td> ' +
-                        '<td>' + json[i].batchNumber + '</td> ' +
-                        '<td>' + json[i].quantityPurchased + '</td> ';
-                    if (json[i].packageIntegrity === 1) {
-                        tmp += '<td>完整</td> ';
-                    } else if (json[i].packageIntegrity === 2) {
-                        tmp += '<td>轻微破损</td> ';
+                        '<td>' + json[i].customer + '</td> ' +
+                        '<td>' + json[i].customerContact + '</td> ' +
+                        '<td>' + json[i].shopName + '</td> ' +
+                        '<td>' + json[i].shopContact + '</td> ' +
+                        '<td>' + json[i].buyTime + '</td> ' +
+                        '<td>' + json[i].complaintTime + '</td> ' +
+                        '<td>' + json[i].typeSpecification + '</td> ' +
+                        '<td>' + json[i].glassesNumber + '</td> ' +
+                        '<td>' + json[i].markDegree + '</td> ' +
+                        '<td>' + json[i].lensNumber + '</td> ';
+                    if (json[i].wearHistory === 1) {
+                        tmp += '<td>是</td> ';
                     } else {
-                        tmp += '<td>损坏</td> ';
+                        tmp += '<td>否</td> ';
                     }
-                    tmp += '<td>' + json[i].productionDate + '</td> ' +
-                        '<td>' + json[i].termOfValidity + '</td> ' +
-                        '<td>' + json[i].acceptanceConclusion + '</td> ' +
-                        '<td>' + json[i].confirmingPerson + '</td> ' +
-                        '<td>' + json[i].buyingPrice + '<td> ' +
+
+                    tmp += '<td>' + json[i].wearHistory + '</td> ' +
+                        '<td>' + json[i].originalBrandModels + '</td> ' +
+                        '<td>（' + json[i].originalGlassesNumberL + '/' + json[i].originalGlassesNumberR + '）</td> ' +
+                        '<td>（' + json[i].optometryDegreeL + '/' + json[i].optometryDegreeR + '）</td> ' +
+                        '<td>（' + json[i].wearSightL + '/' + json[i].wearSightR + '）</td> ' +
+                        '<td>' + json[i].customerComplaintContent + '</td> ' +
+                        '<td>' + json[i].storeExaminationResult + '</td> ' +
+                        '<td>' + json[i].glassesExaminationResult + '</td> ' +
+                        '<td>' + json[i].procurator + '</td> ' +
+                        '<td>' + json[i].date + '</td> ' +
                         '</tr>';
                 }
                 $('#allList').html(tmp);
-*/
             }
         })
     });

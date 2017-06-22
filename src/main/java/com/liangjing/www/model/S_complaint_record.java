@@ -1,8 +1,12 @@
 package com.liangjing.www.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class S_complaint_record {
+
     private Integer id;
 
     private String customer;
@@ -13,8 +17,12 @@ public class S_complaint_record {
 
     private String shopContact;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date buyTime;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date complaintTime;
 
     private String typeSpecification;
@@ -49,6 +57,8 @@ public class S_complaint_record {
 
     private String procurator;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date date;
 
     public Integer getId() {

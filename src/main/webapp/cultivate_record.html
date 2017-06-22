@@ -167,7 +167,7 @@
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
 
-                            <h5>总购进，入库验收记录</h5>
+                            <h5>培训计划记录</h5>
                             <div class="ibox-tools">
                                 <a class="collapse-link">
                                     <i class="fa fa-chevron-up"></i>
@@ -179,44 +179,26 @@
                             <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
                                 <thead>
                                 <tr>
-                                    <th>商品类型</th>
-                                    <th>进货日期</th>
-                                    <th data-hide="phone">验货日期</th>
-                                    <th>产品名称</th>
-                                    <th data-hide="phone">生产商/供应商</th>
-                                    <th data-hide="phone">顶焦度</th>
-                                    <th data-hide="phone">中文标识</th>
-                                    <th data-hide="phone">批号</th>
-                                    <th data-hide="phone">进货数量</th>
-                                    <th data-hide="phone">包装完整度</th>
-                                    <th data-hide="phone">生产日期</th>
-                                    <th data-hide="phone">有效期</th>
-                                    <th data-hide="phone">验收结论</th>
-                                    <th data-hide="phone">验收确认人</th>
-                                    <th>总进货价</th>
+                                    <th>培训内容</th>
+                                    <th data-hide="phone">培训名单</th>
+                                    <th>培训时间</th>
+                                    <th>培训方式</th>
+                                    <th>培训地点</th>
                                     <!--<th data-hide="all">删除</th><button class="btn btn-w-m btn-danger btn-xs">删除</button>-->
                                 </tr>
                                 </thead>
                                 <tbody id="allList">
                                 <tr>
-                                    <td>Project - This is example of project</td>
-                                    <td>Patrick Smith</td>
-                                    <td>0800 051213</td>
-                                    <td>Inceptos Hymenaeos Ltd</td>
-                                    <td>0.52/1.561</td>
-                                    <td>0800 051213</td>
-                                    <td>0800 051213</td>
-                                    <td>0800 051213</td>
-                                    <td>0800 051213</td>
-                                    <td>0800 051213</td>
-                                    <td>0800 051213</td>
-                                    <td>0800 051213</td>
-                                    <td>0800 051213</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
                                 </tr>
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <td colspan="14">
+                                    <td colspan="5">
                                         <ul class="pagination pull-right"></ul>
                                     </td>
                                 </tr>
@@ -266,34 +248,19 @@
                 console.log(data);
                 var json = jQuery.parseJSON(data);
                 var tmp;
-/*
                 for (var i = 0; i < json.length; i++) {
                     tmp += '<tr>' +
-                        '<td>' + json[i].commodityType + '</td> ' +
-                        '<td>' + json[i].purchaseDate + '</td> ' +
-                        '<td>' + json[i].inspectionDate + '</td> ' +
-                        '<td>' + json[i].productName + '</td> ' +
-                        '<td>' + json[i].companyName + '</td> ' +
-                        '<td>' + json[i].vertexFocus + '</td> ' +
-                        '<td>' + json[i].chineseLogo + '</td> ' +
-                        '<td>' + json[i].batchNumber + '</td> ' +
-                        '<td>' + json[i].quantityPurchased + '</td> ';
-                    if (json[i].packageIntegrity === 1) {
-                        tmp += '<td>完整</td> ';
-                    } else if (json[i].packageIntegrity === 2) {
-                        tmp += '<td>轻微破损</td> ';
-                    } else {
-                        tmp += '<td>损坏</td> ';
+                        '<td>' + json[i].cultivateContent + '</td> <td>';
+                    for (var j = 0; j < json[i].personlists.length; j++) {
+                        tmp += json[i].personlists[j].cultivateName + ' ' ;
                     }
-                    tmp += '<td>' + json[i].productionDate + '</td> ' +
-                        '<td>' + json[i].termOfValidity + '</td> ' +
-                        '<td>' + json[i].acceptanceConclusion + '</td> ' +
-                        '<td>' + json[i].confirmingPerson + '</td> ' +
-                        '<td>' + json[i].buyingPrice + '<td> ' +
+                    tmp += '</td> ' +
+                        '<td>' + json[i].cultivateDate + '</td> ' +
+                        '<td>' + json[i].cultivateWay + '</td> ' +
+                        '<td>' + json[i].cultivateAddress + '</td> ' +
                         '</tr>';
                 }
                 $('#allList').html(tmp);
-*/
             }
         })
     });

@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.liangjing.www.model.S_after_sale_service">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="date" jdbcType="DATE" property="date" />
-    <result column="customer" jdbcType="VARCHAR" property="customer" />
+    <result column="customer_content" jdbcType="VARCHAR" property="customerContent" />
     <result column="treatment_mode" jdbcType="VARCHAR" property="treatmentMode" />
     <result column="processing_sheet" jdbcType="VARCHAR" property="processingSheet" />
     <result column="handlers" jdbcType="VARCHAR" property="handlers" />
@@ -12,7 +12,7 @@
     <result column="remarks" jdbcType="VARCHAR" property="remarks" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, date, customer, treatment_mode, processing_sheet, handlers, close_date, remarks
+    id, date, customer_content, treatment_mode, processing_sheet, handlers, close_date, remarks
   </sql>
 
   <select id="getAll" resultMap="BaseResultMap">
@@ -29,10 +29,10 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.liangjing.www.model.S_after_sale_service">
-    insert into s_after_sale_service (id, date, customer, 
+    insert into s_after_sale_service (id, date, customer_content,
       treatment_mode, processing_sheet, handlers, 
       close_date, remarks)
-    values (#{id,jdbcType=INTEGER}, #{date,jdbcType=DATE}, #{customer,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{date,jdbcType=DATE}, #{customerContent,jdbcType=VARCHAR},
       #{treatmentMode,jdbcType=VARCHAR}, #{processingSheet,jdbcType=VARCHAR}, #{handlers,jdbcType=VARCHAR}, 
       #{closeDate,jdbcType=DATE}, #{remarks,jdbcType=VARCHAR})
   </insert>
@@ -45,8 +45,8 @@
       <if test="date != null">
         date,
       </if>
-      <if test="customer != null">
-        customer,
+      <if test="customerContent != null">
+        customer_content,
       </if>
       <if test="treatmentMode != null">
         treatment_mode,
@@ -71,8 +71,8 @@
       <if test="date != null">
         #{date,jdbcType=DATE},
       </if>
-      <if test="customer != null">
-        #{customer,jdbcType=VARCHAR},
+      <if test="customerContent != null">
+        #{customerContent,jdbcType=VARCHAR},
       </if>
       <if test="treatmentMode != null">
         #{treatmentMode,jdbcType=VARCHAR},
@@ -98,7 +98,7 @@
         date = #{date,jdbcType=DATE},
       </if>
       <if test="customer != null">
-        customer = #{customer,jdbcType=VARCHAR},
+        customer_content = #{customerContent,jdbcType=VARCHAR},
       </if>
       <if test="treatmentMode != null">
         treatment_mode = #{treatmentMode,jdbcType=VARCHAR},
@@ -121,7 +121,7 @@
   <update id="updateByPrimaryKey" parameterType="com.liangjing.www.model.S_after_sale_service">
     update s_after_sale_service
     set date = #{date,jdbcType=DATE},
-      customer = #{customer,jdbcType=VARCHAR},
+      customer_content = #{customerContent,jdbcType=VARCHAR},
       treatment_mode = #{treatmentMode,jdbcType=VARCHAR},
       processing_sheet = #{processingSheet,jdbcType=VARCHAR},
       handlers = #{handlers,jdbcType=VARCHAR},

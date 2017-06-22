@@ -17,7 +17,6 @@ public class S_trace_record {
 
     private String companyName;
 
-    private Integer salesVolumes;
 
     private String feedback;
 
@@ -40,6 +39,8 @@ public class S_trace_record {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date saleDate;
+
+    private Integer salesVolumes;
 
     private String customerName;
 
