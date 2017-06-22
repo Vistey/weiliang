@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liangjing.www.dao.R_medical_device_registrationMapper">
+  <resultMap id="BaseResultMap" type="com.liangjing.www.model.R_medical_device_registration">
+    <id column="credit_code" jdbcType="VARCHAR" property="creditCode" />
+    <result column="registration_name" jdbcType="VARCHAR" property="registrationName" />
+    <result column="registration_address" jdbcType="VARCHAR" property="registrationAddress" />
+    <result column="production_address" jdbcType="VARCHAR" property="productionAddress" />
+    <result column="agent_name" jdbcType="VARCHAR" property="agentName" />
+    <result column="agent_address" jdbcType="VARCHAR" property="agentAddress" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="structure_and_composition" jdbcType="VARCHAR" property="structureAndComposition" />
+    <result column="scope_of_application" jdbcType="VARCHAR" property="scopeOfApplication" />
+    <result column="enclosure" jdbcType="VARCHAR" property="enclosure" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="approval_date" jdbcType="DATE" property="approvalDate" />
+    <result column="valid_from" jdbcType="DATE" property="validFrom" />
+    <result column="valid_until" jdbcType="DATE" property="validUntil" />
+    <result column="scanning_url" jdbcType="VARCHAR" property="scanningUrl" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    credit_code, registration_name, registration_address, production_address, agent_name, 
+    agent_address, product_name, model, structure_and_composition, scope_of_application, 
+    enclosure, remarks, approval_date, valid_from, valid_until, scanning_url, state
+  </sql>
+
+  <select id="getMedicalDeviceRegistration" resultType="com.liangjing.www.model.R_medical_device_registration">
+    SELECT
+      credit_code creditCode,
+      registration_name registrationName,
+      registration_address registrationAddress,
+      production_address productionAddress,
+      agent_name agentName,
+      agent_address agentAddress,
+      product_name productName,
+      model,
+      structure_and_composition structureAndComposition,
+      scope_of_application scopeOfApplication,
+      enclosure,
+      remarks,
+      approval_date approvalDate,
+      valid_from validFrom,
+      valid_until validUntil,
+      scanning_url scanningUrl,
+      state
+      FROM r_medical_device_registration
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from r_medical_device_registration
+    where credit_code = #{creditCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from r_medical_device_registration
+    where credit_code = #{creditCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.liangjing.www.model.R_medical_device_registration">
+    insert into r_medical_device_registration (credit_code, registration_name, registration_address, 
+      production_address, agent_name, agent_address, 
+      product_name, model, structure_and_composition, 
+      scope_of_application, enclosure, remarks, 
+      approval_date, valid_from, valid_until, 
+      scanning_url, state)
+    values (#{creditCode,jdbcType=VARCHAR}, #{registrationName,jdbcType=VARCHAR}, #{registrationAddress,jdbcType=VARCHAR}, 
+      #{productionAddress,jdbcType=VARCHAR}, #{agentName,jdbcType=VARCHAR}, #{agentAddress,jdbcType=VARCHAR}, 
+      #{productName,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{structureAndComposition,jdbcType=VARCHAR}, 
+      #{scopeOfApplication,jdbcType=VARCHAR}, #{enclosure,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
+      #{approvalDate,jdbcType=DATE}, #{validFrom,jdbcType=DATE}, #{validUntil,jdbcType=DATE}, 
+      #{scanningUrl,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.liangjing.www.model.R_medical_device_registration">
+    insert into r_medical_device_registration
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="creditCode != null">
+        credit_code,
+      </if>
+      <if test="registrationName != null">
+        registration_name,
+      </if>
+      <if test="registrationAddress != null">
+        registration_address,
+      </if>
+      <if test="productionAddress != null">
+        production_address,
+      </if>
+      <if test="agentName != null">
+        agent_name,
+      </if>
+      <if test="agentAddress != null">
+        agent_address,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="model != null">
+        model,
+      </if>
+      <if test="structureAndComposition != null">
+        structure_and_composition,
+      </if>
+      <if test="scopeOfApplication != null">
+        scope_of_application,
+      </if>
+      <if test="enclosure != null">
+        enclosure,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+      <if test="approvalDate != null">
+        approval_date,
+      </if>
+      <if test="validFrom != null">
+        valid_from,
+      </if>
+      <if test="validUntil != null">
+        valid_until,
+      </if>
+      <if test="scanningUrl != null">
+        scanning_url,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="creditCode != null">
+        #{creditCode,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationName != null">
+        #{registrationName,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationAddress != null">
+        #{registrationAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="productionAddress != null">
+        #{productionAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="agentName != null">
+        #{agentName,jdbcType=VARCHAR},
+      </if>
+      <if test="agentAddress != null">
+        #{agentAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null">
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="structureAndComposition != null">
+        #{structureAndComposition,jdbcType=VARCHAR},
+      </if>
+      <if test="scopeOfApplication != null">
+        #{scopeOfApplication,jdbcType=VARCHAR},
+      </if>
+      <if test="enclosure != null">
+        #{enclosure,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalDate != null">
+        #{approvalDate,jdbcType=DATE},
+      </if>
+      <if test="validFrom != null">
+        #{validFrom,jdbcType=DATE},
+      </if>
+      <if test="validUntil != null">
+        #{validUntil,jdbcType=DATE},
+      </if>
+      <if test="scanningUrl != null">
+        #{scanningUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.liangjing.www.model.R_medical_device_registration">
+    update r_medical_device_registration
+    <set>
+      <if test="registrationName != null">
+        registration_name = #{registrationName,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationAddress != null">
+        registration_address = #{registrationAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="productionAddress != null">
+        production_address = #{productionAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="agentName != null">
+        agent_name = #{agentName,jdbcType=VARCHAR},
+      </if>
+      <if test="agentAddress != null">
+        agent_address = #{agentAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null">
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="structureAndComposition != null">
+        structure_and_composition = #{structureAndComposition,jdbcType=VARCHAR},
+      </if>
+      <if test="scopeOfApplication != null">
+        scope_of_application = #{scopeOfApplication,jdbcType=VARCHAR},
+      </if>
+      <if test="enclosure != null">
+        enclosure = #{enclosure,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalDate != null">
+        approval_date = #{approvalDate,jdbcType=DATE},
+      </if>
+      <if test="validFrom != null">
+        valid_from = #{validFrom,jdbcType=DATE},
+      </if>
+      <if test="validUntil != null">
+        valid_until = #{validUntil,jdbcType=DATE},
+      </if>
+      <if test="scanningUrl != null">
+        scanning_url = #{scanningUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+    </set>
+    where credit_code = #{creditCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.liangjing.www.model.R_medical_device_registration">
+    update r_medical_device_registration
+    set registration_name = #{registrationName,jdbcType=VARCHAR},
+      registration_address = #{registrationAddress,jdbcType=VARCHAR},
+      production_address = #{productionAddress,jdbcType=VARCHAR},
+      agent_name = #{agentName,jdbcType=VARCHAR},
+      agent_address = #{agentAddress,jdbcType=VARCHAR},
+      product_name = #{productName,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      structure_and_composition = #{structureAndComposition,jdbcType=VARCHAR},
+      scope_of_application = #{scopeOfApplication,jdbcType=VARCHAR},
+      enclosure = #{enclosure,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      approval_date = #{approvalDate,jdbcType=DATE},
+      valid_from = #{validFrom,jdbcType=DATE},
+      valid_until = #{validUntil,jdbcType=DATE},
+      scanning_url = #{scanningUrl,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER}
+    where credit_code = #{creditCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

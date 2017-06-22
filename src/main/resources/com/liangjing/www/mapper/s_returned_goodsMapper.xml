@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liangjing.www.dao.S_returned_goodsMapper">
+  <resultMap id="BaseResultMap" type="com.liangjing.www.model.S_returned_goods">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="customer_phone" jdbcType="VARCHAR" property="customerPhone" />
+    <result column="customer_postcard" jdbcType="VARCHAR" property="customerPostcard" />
+    <result column="customer_address" jdbcType="VARCHAR" property="customerAddress" />
+    <result column="batch_number_l" jdbcType="VARCHAR" property="batchNumberL" />
+    <result column="batch_number_r" jdbcType="VARCHAR" property="batchNumberR" />
+    <result column="glasses_degree_l" jdbcType="VARCHAR" property="glassesDegreeL" />
+    <result column="glasses_degree_r" jdbcType="VARCHAR" property="glassesDegreeR" />
+    <result column="optician_date" jdbcType="DATE" property="opticianDate" />
+    <result column="returned_date" jdbcType="DATE" property="returnedDate" />
+    <result column="handler" jdbcType="VARCHAR" property="handler" />
+    <result column="returned_reason" jdbcType="VARCHAR" property="returnedReason" />
+    <result column="findings" jdbcType="VARCHAR" property="findings" />
+    <result column="glasses_l_degree" jdbcType="VARCHAR" property="glassesLDegree" />
+    <result column="glasses_r_degree" jdbcType="VARCHAR" property="glassesRDegree" />
+    <result column="date_optician" jdbcType="DATE" property="dateOptician" />
+    <result column="date_returned" jdbcType="DATE" property="dateReturned" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, customer_phone, customer_postcard, customer_address, batch_number_l, batch_number_r, 
+    glasses_degree_l, glasses_degree_r, optician_date, returned_date, handler, returned_reason, 
+    findings, glasses_l_degree, glasses_r_degree, date_optician, date_returned
+  </sql>
+  <select id="getAll" resultMap="BaseResultMap">
+    SELECT * FROM s_returned_goods
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from s_returned_goods
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from s_returned_goods
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.liangjing.www.model.S_returned_goods">
+    insert into s_returned_goods (id, customer_phone, customer_postcard, 
+      customer_address, batch_number_l, batch_number_r, 
+      glasses_degree_l, glasses_degree_r, optician_date, 
+      returned_date, handler, returned_reason, 
+      findings, glasses_l_degree, glasses_r_degree, 
+      date_optician, date_returned)
+    values (#{id,jdbcType=INTEGER}, #{customerPhone,jdbcType=VARCHAR}, #{customerPostcard,jdbcType=VARCHAR}, 
+      #{customerAddress,jdbcType=VARCHAR}, #{batchNumberL,jdbcType=VARCHAR}, #{batchNumberR,jdbcType=VARCHAR}, 
+      #{glassesDegreeL,jdbcType=VARCHAR}, #{glassesDegreeR,jdbcType=VARCHAR}, #{opticianDate,jdbcType=DATE}, 
+      #{returnedDate,jdbcType=DATE}, #{handler,jdbcType=VARCHAR}, #{returnedReason,jdbcType=VARCHAR}, 
+      #{findings,jdbcType=VARCHAR}, #{glassesLDegree,jdbcType=VARCHAR}, #{glassesRDegree,jdbcType=VARCHAR}, 
+      #{dateOptician,jdbcType=DATE}, #{dateReturned,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.liangjing.www.model.S_returned_goods">
+    insert into s_returned_goods
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="customerPhone != null">
+        customer_phone,
+      </if>
+      <if test="customerPostcard != null">
+        customer_postcard,
+      </if>
+      <if test="customerAddress != null">
+        customer_address,
+      </if>
+      <if test="batchNumberL != null">
+        batch_number_l,
+      </if>
+      <if test="batchNumberR != null">
+        batch_number_r,
+      </if>
+      <if test="glassesDegreeL != null">
+        glasses_degree_l,
+      </if>
+      <if test="glassesDegreeR != null">
+        glasses_degree_r,
+      </if>
+      <if test="opticianDate != null">
+        optician_date,
+      </if>
+      <if test="returnedDate != null">
+        returned_date,
+      </if>
+      <if test="handler != null">
+        handler,
+      </if>
+      <if test="returnedReason != null">
+        returned_reason,
+      </if>
+      <if test="findings != null">
+        findings,
+      </if>
+      <if test="glassesLDegree != null">
+        glasses_l_degree,
+      </if>
+      <if test="glassesRDegree != null">
+        glasses_r_degree,
+      </if>
+      <if test="dateOptician != null">
+        date_optician,
+      </if>
+      <if test="dateReturned != null">
+        date_returned,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="customerPhone != null">
+        #{customerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="customerPostcard != null">
+        #{customerPostcard,jdbcType=VARCHAR},
+      </if>
+      <if test="customerAddress != null">
+        #{customerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNumberL != null">
+        #{batchNumberL,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNumberR != null">
+        #{batchNumberR,jdbcType=VARCHAR},
+      </if>
+      <if test="glassesDegreeL != null">
+        #{glassesDegreeL,jdbcType=VARCHAR},
+      </if>
+      <if test="glassesDegreeR != null">
+        #{glassesDegreeR,jdbcType=VARCHAR},
+      </if>
+      <if test="opticianDate != null">
+        #{opticianDate,jdbcType=DATE},
+      </if>
+      <if test="returnedDate != null">
+        #{returnedDate,jdbcType=DATE},
+      </if>
+      <if test="handler != null">
+        #{handler,jdbcType=VARCHAR},
+      </if>
+      <if test="returnedReason != null">
+        #{returnedReason,jdbcType=VARCHAR},
+      </if>
+      <if test="findings != null">
+        #{findings,jdbcType=VARCHAR},
+      </if>
+      <if test="glassesLDegree != null">
+        #{glassesLDegree,jdbcType=VARCHAR},
+      </if>
+      <if test="glassesRDegree != null">
+        #{glassesRDegree,jdbcType=VARCHAR},
+      </if>
+      <if test="dateOptician != null">
+        #{dateOptician,jdbcType=DATE},
+      </if>
+      <if test="dateReturned != null">
+        #{dateReturned,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.liangjing.www.model.S_returned_goods">
+    update s_returned_goods
+    <set>
+      <if test="customerPhone != null">
+        customer_phone = #{customerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="customerPostcard != null">
+        customer_postcard = #{customerPostcard,jdbcType=VARCHAR},
+      </if>
+      <if test="customerAddress != null">
+        customer_address = #{customerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNumberL != null">
+        batch_number_l = #{batchNumberL,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNumberR != null">
+        batch_number_r = #{batchNumberR,jdbcType=VARCHAR},
+      </if>
+      <if test="glassesDegreeL != null">
+        glasses_degree_l = #{glassesDegreeL,jdbcType=VARCHAR},
+      </if>
+      <if test="glassesDegreeR != null">
+        glasses_degree_r = #{glassesDegreeR,jdbcType=VARCHAR},
+      </if>
+      <if test="opticianDate != null">
+        optician_date = #{opticianDate,jdbcType=DATE},
+      </if>
+      <if test="returnedDate != null">
+        returned_date = #{returnedDate,jdbcType=DATE},
+      </if>
+      <if test="handler != null">
+        handler = #{handler,jdbcType=VARCHAR},
+      </if>
+      <if test="returnedReason != null">
+        returned_reason = #{returnedReason,jdbcType=VARCHAR},
+      </if>
+      <if test="findings != null">
+        findings = #{findings,jdbcType=VARCHAR},
+      </if>
+      <if test="glassesLDegree != null">
+        glasses_l_degree = #{glassesLDegree,jdbcType=VARCHAR},
+      </if>
+      <if test="glassesRDegree != null">
+        glasses_r_degree = #{glassesRDegree,jdbcType=VARCHAR},
+      </if>
+      <if test="dateOptician != null">
+        date_optician = #{dateOptician,jdbcType=DATE},
+      </if>
+      <if test="dateReturned != null">
+        date_returned = #{dateReturned,jdbcType=DATE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.liangjing.www.model.S_returned_goods">
+    update s_returned_goods
+    set customer_phone = #{customerPhone,jdbcType=VARCHAR},
+      customer_postcard = #{customerPostcard,jdbcType=VARCHAR},
+      customer_address = #{customerAddress,jdbcType=VARCHAR},
+      batch_number_l = #{batchNumberL,jdbcType=VARCHAR},
+      batch_number_r = #{batchNumberR,jdbcType=VARCHAR},
+      glasses_degree_l = #{glassesDegreeL,jdbcType=VARCHAR},
+      glasses_degree_r = #{glassesDegreeR,jdbcType=VARCHAR},
+      optician_date = #{opticianDate,jdbcType=DATE},
+      returned_date = #{returnedDate,jdbcType=DATE},
+      handler = #{handler,jdbcType=VARCHAR},
+      returned_reason = #{returnedReason,jdbcType=VARCHAR},
+      findings = #{findings,jdbcType=VARCHAR},
+      glasses_l_degree = #{glassesLDegree,jdbcType=VARCHAR},
+      glasses_r_degree = #{glassesRDegree,jdbcType=VARCHAR},
+      date_optician = #{dateOptician,jdbcType=DATE},
+      date_returned = #{dateReturned,jdbcType=DATE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

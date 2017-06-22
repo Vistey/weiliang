@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LiangJing | 营业执照</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/plugins/codemirror/codemirror.css" rel="stylesheet">
+    <link href="css/plugins/codemirror/ambiance.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="fixed-sidebar no-skin-config full-height-layout">
+
+<div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element"> <span>
+                            <img alt="image" class="img-circle" src="img/gallery/1s.jpg"/>
+                             </span>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+                            <span class="clear">
+                                <span class="block m-t-xs"> <strong class="font-bold">LiangJing</strong></span>
+                                <!--<span class="text-muted text-xs block">Art Director <b class="caret"></b></span> -->
+                            </span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <a href="index.html"><i class="fa fa-home"></i> <span class="nav-label">首页</span></a>
+                </li>
+                <li>
+                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">管理列表</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="sales_management.html">销售管理</a></li>
+                        <li><a href="purchase_warehousing.html">购进，入库验收管理</a></li>
+                        <li><a href="quality_tracking.html">质量跟踪记录</a></li>
+                        <li><a href="cultivate_record.html">培训计划表</a></li>
+                        <li><a href="nonconforming_product.html">不合格产品记录表</a></li>
+                        <li><a href="returned_goods.html">顾客退片/换片记录单</a></li>
+                        <li><a href="dashboard_5.html">隐形眼镜质量投诉处理记录</a></li>
+                        <li><a href="dashboard_5.html">售后服务记录表</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="index.html#"><i class="fa fa-files-o"></i> <span class="nav-label">本公司资质档案</span><span
+                            class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="our_business_license.html">营业执照</a></li>
+                        <li><a href="our_medical_device_license.html">医疗器械经营企业许可证</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="index.html#"><i class="fa fa-files-o"></i> <span class="nav-label">首营资质档案</span><span
+                            class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="gmp_business_license.html">营业执照</a></li>
+                        <li><a href="gmp_medical_device_license.html">医疗器械经营企业许可证</a></li>
+                        <li><a href="gmp_certificate_of_authorization.html">授权书</a></li>
+                        <li><a href="gmp_medical_device_registration.html">医疗器械注册证</a></li>
+                        <li><a href="gmp_add_certificates.html">增加执照</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="commodity_type.html"><i class="fa fa-shopping-cart"></i> <span class="nav-label">商品类型</span></a>
+                </li>
+                <li>
+                    <a href="personnel_management.html"><i class="fa fa-user"></i> <span class="nav-label">人员管理</span></a>
+                </li>
+                <li>
+                    <a href="indexwwwww.html"><i class="fa fa-desktop"></i> <span class="nav-label">系统维护</span></a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary "><i class="fa fa-bars"></i> </a>
+                    <!--TODO 下面搜索功能要重写-->
+                    <form role="search" class="navbar-form-custom" action="search_results.html">
+                        <div class="form-group">
+                            <input type="text" placeholder="Search for something..." class="form-control" name="top-search"
+                                   id="top-search">
+                        </div>
+                    </form>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <!--资质证书 保质期过期提示-->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="index.html#">
+                            <i class="fa fa-bell"></i>
+                            <!--TODO 信息总数-->
+                            <span class="label label-primary">8</span>
+                        </a>
+                        <!--TODO 下面的内容需要调整-->
+                        <ul class="dropdown-menu dropdown-alerts">
+                            <li>
+                                <a href="mailbox.html">
+                                    <div>
+                                        <i class="fa fa-envelope fa-fw"></i> You have 16 messages
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="profile.html">
+                                    <div>
+                                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                        <span class="pull-right text-muted small">12 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="grid_options.html">
+                                    <div>
+                                        <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <div class="text-center link-block">
+                                    <a href="notifications.html">
+                                        <strong>See All Alerts</strong>
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="login.html">
+                            <i class="fa fa-sign-out"></i> Log out
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>首营资质</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="index.html">首页</a>
+                    </li>
+                    <li>
+                        <a>首营资质档案</a>
+                    </li>
+                    <li class="active">
+                        <strong>营业执照</strong>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+        <div class="fh-breadcrumb">
+
+            <div class="fh-column">
+                <div class="full-height-scroll">
+                    <ul id="thisListLi" class="list-group elements-list">
+                        <li class="list-group-item">
+                            <a data-toggle="tab" href="#tab-0"><strong></strong>
+                                <div class="small m-t-xs"><p> 增加营业执照</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a data-toggle="tab" href="#tab-1"><strong></strong>
+                                <div class="small m-t-xs"><p> 增加医疗器械经营企业许可证</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a data-toggle="tab" href="#tab-2"><strong></strong>
+                                <div class="small m-t-xs"><p> 增加授权书</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a data-toggle="tab" href="#tab-3"><strong></strong>
+                                <div class="small m-t-xs"><p> 增加医疗器械注册证</p>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="full-height">
+                <div class="full-height-scroll white-bg border-left">
+
+                    <div class="element-detail-box">
+
+                        <div class="tab-content" id="thisListDiv">
+                            <div id="tab-0" class="tab-pane">
+                                <form id="formlist0" method="post">
+                                    <table class="table table-hover">
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">企业名称：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <ul id="addcompanyName0">
+                                                </ul>
+                                                <input type="text" class="form-control" title=""/>
+                                                <p class="btn btn-white btn-sm" onclick="addcompany(this)"><i
+                                                        class="fa fa-folder"></i>
+                                                    增加公司
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">统一社会信用代码：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="creditCode" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">证件编号：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="documentNumber" title=""/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">类型：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="type" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">住所：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="address" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">经营者：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="owner" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">组织形式：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="organizationForm" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">法定代表人：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="legalPerson" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">注册资本：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="registeredCapital" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">成立日期：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="establishmentDate" title=""
+                                                       placeholder="格式：2016-01-01"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">经营范围：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="scopeOfBusiness" title=""/>
+                                                <input type="hidden" name="state" value="1" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-actions" colspan="2">
+                                                <p id="goadd0" class="btn btn-white btn-sm"><i
+                                                        class="fa fa-folder"></i> 提交 </p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                            <div id="tab-1" class="tab-pane">
+                                <form id="formlist1" method="post">
+                                    <table class="table table-hover">
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">企业名称：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <ul id="addcompanyName1">
+                                                </ul>
+                                                <input type="text" class="form-control" title=""/>
+                                                <p class="btn btn-white btn-sm" onclick="addcompany(this)"><i
+                                                        class="fa fa-folder"></i>
+                                                    增加公司
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">证号：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="creditCode" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">注册地址：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="registrationAddress" title=""/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">法定代表人：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="legalPerson" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">企业负责人：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="responsiblePerson" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">质量管理人：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="qualityManager" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">仓库地址：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="warehouseAddress" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">经营范围：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="scopeOfBusiness" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">有效期自：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="validFrom" title="" placeholder="格式：2016-01-01"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">有效期至：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="validUntil" title=""
+                                                       placeholder="格式：2016-01-01"/>
+                                                <input type="hidden" name="state" value="1" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-actions" colspan="2">
+                                                <p id="goadd1" class="btn btn-white btn-sm"><i
+                                                        class="fa fa-folder"></i> 提交 </p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                            <div id="tab-2" class="tab-pane">
+                                <form id="formlist2" method="post">
+                                    <table class="table table-hover">
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">企业名称：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <ul id="addcompanyName2">
+                                                </ul>
+                                                <input type="text" class="form-control" title=""/>
+                                                <p class="btn btn-white btn-sm" onclick="addcompany(this)"><i
+                                                        class="fa fa-folder"></i>
+                                                    增加公司
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">有效期至：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="validityDate" title=""
+                                                       placeholder="格式：2016-01-01"/>
+                                                <input type="hidden" name="state" value="1" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-actions" colspan="2">
+                                                <p id="goadd2" class="btn btn-white btn-sm"><i
+                                                        class="fa fa-folder"></i> 提交 </p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                            <div id="tab-3" class="tab-pane">
+                                <form id="formlist3" method="post">
+                                    <table class="table table-hover">
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">注册人名称：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <ul id="addcompanyName3">
+                                                </ul>
+                                                <input type="text" class="form-control" title=""/>
+                                                <p class="btn btn-white btn-sm" onclick="addcompany(this)"><i
+                                                        class="fa fa-folder"></i>
+                                                    增加公司
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">注册证编号：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="creditCode" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">注册人地址：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="registrationAddress" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">生产地址：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="productionAddress" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">代理人名称：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="agentName" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">代理人地址：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="agentAddress" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">产品名称：</span>
+                                            </td>
+                                            <td class="project-actions" >
+                                                <input type="text" class="form-control" name="productName" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">规格型号：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="model" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">结构及组成：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="structureAndComposition" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">适用范围：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="scopeOfApplication" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">附件：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="enclosure" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">备注：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="remarks" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">批准日期：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="approvalDate" title=""
+                                                       placeholder="格式：2016-01-01"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">有效期自：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="validFrom" title=""
+                                                       placeholder="格式：2016-01-01"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-title">
+                                                <span style="line-height: 30px">有效期至：</span>
+                                            </td>
+                                            <td class="project-actions">
+                                                <input type="text" class="form-control" name="validUntil" title=""
+                                                       placeholder="格式：2016-01-01"/>
+                                                <input type="hidden" name="state" value="1" title=""/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-actions" colspan="2">
+                                                <p id="goadd3" class="btn btn-white btn-sm"><i
+                                                        class="fa fa-folder"></i> 提交 </p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="footer">
+            <div>
+                <strong>Copyright from </strong> 上海亮睛眼镜商店 &copy; 2017
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Mainly scripts -->
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="js/inspinia.js"></script>
+<script src="js/plugins/pace/pace.min.js"></script>
+
+<script>
+    $(function () {
+        $.ajax({
+            url: 'certificate/getcompanyName.do',
+            success: function (data) {
+                console.log(data);
+                var json = jQuery.parseJSON(data);
+                var tmp;
+                var tmp2;
+                for (var i = 0; i < json.length; i++) {
+                    tmp += '<li><input type="radio" name="companyName" value="' + json[i] + '"/>' + json[i] + '</li>';
+                    tmp2 += '<li><input type="radio" name="registrationName" value="' + json[i] + '"/>' + json[i] + '</li>';
+                }
+                $("#addcompanyName0").html(tmp);
+                $("#addcompanyName1").html(tmp);
+                $("#addcompanyName2").html(tmp);
+                $("#addcompanyName3").html(tmp2);
+            }
+        });
+/*
+        $.ajax({
+            url:'commodity/allcommodity.do',
+            success:function (data) {
+                console.log(data);
+                var json =jQuery.parseJSON(data);
+                var tmp;
+                for (var i = 0; i < json.length; i++){
+                    tmp += '<li><input type="radio" name="productName" value="' + json[i].type + '"/>' + json[i].type + '</li>';
+                }
+                $('#productNameList').html(tmp);
+            }
+        })
+*/
+    });
+    function addcompany(cn) {
+        $.ajax({
+            url: 'certificate/addcompany.do',
+            type: 'post',
+            data: {
+                companyname: $(cn).prev().val()
+            },
+            success: function (data) {
+                if (data) {
+                    location.reload();
+                } else {
+                    alert('公司名字重复');
+                }
+            }
+        })
+    }
+
+    $("#goadd0").click(function () {
+        $.ajax({
+            url:'certificate/addBusinessLicense.do',
+            type:'post',
+            data:$('#formlist0').serialize(),
+            success:function (data) {
+                if (data){
+                    alert("添加成功")
+                }else {
+                    alert("添加失败")
+                }
+            }
+        })
+    });
+
+    $("#goadd1").click(function () {
+        $.ajax({
+            url:'certificate/addGmpMedicalLicense.do',
+            type:'post',
+            data:$('#formlist1').serialize(),
+            success:function (data) {
+                if (data){
+                    alert("添加成功")
+                }else {
+                    alert("添加失败")
+                }
+            }
+        })
+    });
+
+    $("#goadd2").click(function () {
+        $.ajax({
+            url:'certificate/addAuthorization.do',
+            type:'post',
+            data:$('#formlist2').serialize(),
+            success:function (data) {
+                if (data){
+                    alert("添加成功")
+                }else {
+                    alert("添加失败")
+                }
+            }
+        })
+    });
+
+    $("#goadd3").click(function () {
+        $.ajax({
+            url:'certificate/addGmpMedicalregistration.do',
+            type:'post',
+            data:$('#formlist3').serialize(),
+            success:function (data) {
+                if (data){
+                    alert("添加成功")
+                }else {
+                    alert("添加失败")
+                }
+            }
+        })
+    });
+</script>
+</body>
+
+</html>

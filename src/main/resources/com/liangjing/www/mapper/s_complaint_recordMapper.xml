@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liangjing.www.dao.S_complaint_recordMapper">
+  <resultMap id="BaseResultMap" type="com.liangjing.www.model.S_complaint_record">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="customer" jdbcType="VARCHAR" property="customer" />
+    <result column="customer_contact" jdbcType="VARCHAR" property="customerContact" />
+    <result column="shop_name" jdbcType="VARCHAR" property="shopName" />
+    <result column="shop_contact" jdbcType="VARCHAR" property="shopContact" />
+    <result column="buy_time" jdbcType="DATE" property="buyTime" />
+    <result column="complaint_time" jdbcType="DATE" property="complaintTime" />
+    <result column="type_specification" jdbcType="VARCHAR" property="typeSpecification" />
+    <result column="glasses_number" jdbcType="INTEGER" property="glassesNumber" />
+    <result column="mark_degree" jdbcType="VARCHAR" property="markDegree" />
+    <result column="lens_number" jdbcType="VARCHAR" property="lensNumber" />
+    <result column="wear_history" jdbcType="INTEGER" property="wearHistory" />
+    <result column="original_brand_models" jdbcType="VARCHAR" property="originalBrandModels" />
+    <result column="original_glasses_number_l" jdbcType="VARCHAR" property="originalGlassesNumberL" />
+    <result column="original_glasses_number_r" jdbcType="VARCHAR" property="originalGlassesNumberR" />
+    <result column="optometry_degree_l" jdbcType="VARCHAR" property="optometryDegreeL" />
+    <result column="optometry_degree_r" jdbcType="VARCHAR" property="optometryDegreeR" />
+    <result column="wear_sight_l" jdbcType="VARCHAR" property="wearSightL" />
+    <result column="wear_sight_r" jdbcType="VARCHAR" property="wearSightR" />
+    <result column="customer_complaint_content" jdbcType="VARCHAR" property="customerComplaintContent" />
+    <result column="store_examination_result" jdbcType="VARCHAR" property="storeExaminationResult" />
+    <result column="glasses_examination_result" jdbcType="VARCHAR" property="glassesExaminationResult" />
+    <result column="procurator" jdbcType="VARCHAR" property="procurator" />
+    <result column="date" jdbcType="DATE" property="date" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, customer, customer_contact, shop_name, shop_contact, buy_time, complaint_time, 
+    type_specification, glasses_number, mark_degree, lens_number, wear_history, original_brand_models, 
+    original_glasses_number_l, original_glasses_number_r, optometry_degree_l, optometry_degree_r, 
+    wear_sight_l, wear_sight_r, customer_complaint_content, store_examination_result, 
+    glasses_examination_result, procurator, date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from s_complaint_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from s_complaint_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.liangjing.www.model.S_complaint_record">
+    insert into s_complaint_record (id, customer, customer_contact, 
+      shop_name, shop_contact, buy_time, 
+      complaint_time, type_specification, glasses_number, 
+      mark_degree, lens_number, wear_history, 
+      original_brand_models, original_glasses_number_l, 
+      original_glasses_number_r, optometry_degree_l, 
+      optometry_degree_r, wear_sight_l, wear_sight_r, 
+      customer_complaint_content, store_examination_result, 
+      glasses_examination_result, procurator, date
+      )
+    values (#{id,jdbcType=INTEGER}, #{customer,jdbcType=VARCHAR}, #{customerContact,jdbcType=VARCHAR}, 
+      #{shopName,jdbcType=VARCHAR}, #{shopContact,jdbcType=VARCHAR}, #{buyTime,jdbcType=DATE}, 
+      #{complaintTime,jdbcType=DATE}, #{typeSpecification,jdbcType=VARCHAR}, #{glassesNumber,jdbcType=INTEGER}, 
+      #{markDegree,jdbcType=VARCHAR}, #{lensNumber,jdbcType=VARCHAR}, #{wearHistory,jdbcType=INTEGER}, 
+      #{originalBrandModels,jdbcType=VARCHAR}, #{originalGlassesNumberL,jdbcType=VARCHAR}, 
+      #{originalGlassesNumberR,jdbcType=VARCHAR}, #{optometryDegreeL,jdbcType=VARCHAR}, 
+      #{optometryDegreeR,jdbcType=VARCHAR}, #{wearSightL,jdbcType=VARCHAR}, #{wearSightR,jdbcType=VARCHAR}, 
+      #{customerComplaintContent,jdbcType=VARCHAR}, #{storeExaminationResult,jdbcType=VARCHAR}, 
+      #{glassesExaminationResult,jdbcType=VARCHAR}, #{procurator,jdbcType=VARCHAR}, #{date,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.liangjing.www.model.S_complaint_record">
+    insert into s_complaint_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="customer != null">
+        customer,
+      </if>
+      <if test="customerContact != null">
+        customer_contact,
+      </if>
+      <if test="shopName != null">
+        shop_name,
+      </if>
+      <if test="shopContact != null">
+        shop_contact,
+      </if>
+      <if test="buyTime != null">
+        buy_time,
+      </if>
+      <if test="complaintTime != null">
+        complaint_time,
+      </if>
+      <if test="typeSpecification != null">
+        type_specification,
+      </if>
+      <if test="glassesNumber != null">
+        glasses_number,
+      </if>
+      <if test="markDegree != null">
+        mark_degree,
+      </if>
+      <if test="lensNumber != null">
+        lens_number,
+      </if>
+      <if test="wearHistory != null">
+        wear_history,
+      </if>
+      <if test="originalBrandModels != null">
+        original_brand_models,
+      </if>
+      <if test="originalGlassesNumberL != null">
+        original_glasses_number_l,
+      </if>
+      <if test="originalGlassesNumberR != null">
+        original_glasses_number_r,
+      </if>
+      <if test="optometryDegreeL != null">
+        optometry_degree_l,
+      </if>
+      <if test="optometryDegreeR != null">
+        optometry_degree_r,
+      </if>
+      <if test="wearSightL != null">
+        wear_sight_l,
+      </if>
+      <if test="wearSightR != null">
+        wear_sight_r,
+      </if>
+      <if test="customerComplaintContent != null">
+        customer_complaint_content,
+      </if>
+      <if test="storeExaminationResult != null">
+        store_examination_result,
+      </if>
+      <if test="glassesExaminationResult != null">
+        glasses_examination_result,
+      </if>
+      <if test="procurator != null">
+        procurator,
+      </if>
+      <if test="date != null">
+        date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="customer != null">
+        #{customer,jdbcType=VARCHAR},
+      </if>
+      <if test="customerContact != null">
+        #{customerContact,jdbcType=VARCHAR},
+      </if>
+      <if test="shopName != null">
+        #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopContact != null">
+        #{shopContact,jdbcType=VARCHAR},
+      </if>
+      <if test="buyTime != null">
+        #{buyTime,jdbcType=DATE},
+      </if>
+      <if test="complaintTime != null">
+        #{complaintTime,jdbcType=DATE},
+      </if>
+      <if test="typeSpecification != null">
+        #{typeSpecification,jdbcType=VARCHAR},
+      </if>
+      <if test="glassesNumber != null">
+        #{glassesNumber,jdbcType=INTEGER},
+      </if>
+      <if test="markDegree != null">
+        #{markDegree,jdbcType=VARCHAR},
+      </if>
+      <if test="lensNumber != null">
+        #{lensNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="wearHistory != null">
+        #{wearHistory,jdbcType=INTEGER},
+      </if>
+      <if test="originalBrandModels != null">
+        #{originalBrandModels,jdbcType=VARCHAR},
+      </if>
+      <if test="originalGlassesNumberL != null">
+        #{originalGlassesNumberL,jdbcType=VARCHAR},
+      </if>
+      <if test="originalGlassesNumberR != null">
+        #{originalGlassesNumberR,jdbcType=VARCHAR},
+      </if>
+      <if test="optometryDegreeL != null">
+        #{optometryDegreeL,jdbcType=VARCHAR},
+      </if>
+      <if test="optometryDegreeR != null">
+        #{optometryDegreeR,jdbcType=VARCHAR},
+      </if>
+      <if test="wearSightL != null">
+        #{wearSightL,jdbcType=VARCHAR},
+      </if>
+      <if test="wearSightR != null">
+        #{wearSightR,jdbcType=VARCHAR},
+      </if>
+      <if test="customerComplaintContent != null">
+        #{customerComplaintContent,jdbcType=VARCHAR},
+      </if>
+      <if test="storeExaminationResult != null">
+        #{storeExaminationResult,jdbcType=VARCHAR},
+      </if>
+      <if test="glassesExaminationResult != null">
+        #{glassesExaminationResult,jdbcType=VARCHAR},
+      </if>
+      <if test="procurator != null">
+        #{procurator,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null">
+        #{date,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.liangjing.www.model.S_complaint_record">
+    update s_complaint_record
+    <set>
+      <if test="customer != null">
+        customer = #{customer,jdbcType=VARCHAR},
+      </if>
+      <if test="customerContact != null">
+        customer_contact = #{customerContact,jdbcType=VARCHAR},
+      </if>
+      <if test="shopName != null">
+        shop_name = #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopContact != null">
+        shop_contact = #{shopContact,jdbcType=VARCHAR},
+      </if>
+      <if test="buyTime != null">
+        buy_time = #{buyTime,jdbcType=DATE},
+      </if>
+      <if test="complaintTime != null">
+        complaint_time = #{complaintTime,jdbcType=DATE},
+      </if>
+      <if test="typeSpecification != null">
+        type_specification = #{typeSpecification,jdbcType=VARCHAR},
+      </if>
+      <if test="glassesNumber != null">
+        glasses_number = #{glassesNumber,jdbcType=INTEGER},
+      </if>
+      <if test="markDegree != null">
+        mark_degree = #{markDegree,jdbcType=VARCHAR},
+      </if>
+      <if test="lensNumber != null">
+        lens_number = #{lensNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="wearHistory != null">
+        wear_history = #{wearHistory,jdbcType=INTEGER},
+      </if>
+      <if test="originalBrandModels != null">
+        original_brand_models = #{originalBrandModels,jdbcType=VARCHAR},
+      </if>
+      <if test="originalGlassesNumberL != null">
+        original_glasses_number_l = #{originalGlassesNumberL,jdbcType=VARCHAR},
+      </if>
+      <if test="originalGlassesNumberR != null">
+        original_glasses_number_r = #{originalGlassesNumberR,jdbcType=VARCHAR},
+      </if>
+      <if test="optometryDegreeL != null">
+        optometry_degree_l = #{optometryDegreeL,jdbcType=VARCHAR},
+      </if>
+      <if test="optometryDegreeR != null">
+        optometry_degree_r = #{optometryDegreeR,jdbcType=VARCHAR},
+      </if>
+      <if test="wearSightL != null">
+        wear_sight_l = #{wearSightL,jdbcType=VARCHAR},
+      </if>
+      <if test="wearSightR != null">
+        wear_sight_r = #{wearSightR,jdbcType=VARCHAR},
+      </if>
+      <if test="customerComplaintContent != null">
+        customer_complaint_content = #{customerComplaintContent,jdbcType=VARCHAR},
+      </if>
+      <if test="storeExaminationResult != null">
+        store_examination_result = #{storeExaminationResult,jdbcType=VARCHAR},
+      </if>
+      <if test="glassesExaminationResult != null">
+        glasses_examination_result = #{glassesExaminationResult,jdbcType=VARCHAR},
+      </if>
+      <if test="procurator != null">
+        procurator = #{procurator,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null">
+        date = #{date,jdbcType=DATE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.liangjing.www.model.S_complaint_record">
+    update s_complaint_record
+    set customer = #{customer,jdbcType=VARCHAR},
+      customer_contact = #{customerContact,jdbcType=VARCHAR},
+      shop_name = #{shopName,jdbcType=VARCHAR},
+      shop_contact = #{shopContact,jdbcType=VARCHAR},
+      buy_time = #{buyTime,jdbcType=DATE},
+      complaint_time = #{complaintTime,jdbcType=DATE},
+      type_specification = #{typeSpecification,jdbcType=VARCHAR},
+      glasses_number = #{glassesNumber,jdbcType=INTEGER},
+      mark_degree = #{markDegree,jdbcType=VARCHAR},
+      lens_number = #{lensNumber,jdbcType=VARCHAR},
+      wear_history = #{wearHistory,jdbcType=INTEGER},
+      original_brand_models = #{originalBrandModels,jdbcType=VARCHAR},
+      original_glasses_number_l = #{originalGlassesNumberL,jdbcType=VARCHAR},
+      original_glasses_number_r = #{originalGlassesNumberR,jdbcType=VARCHAR},
+      optometry_degree_l = #{optometryDegreeL,jdbcType=VARCHAR},
+      optometry_degree_r = #{optometryDegreeR,jdbcType=VARCHAR},
+      wear_sight_l = #{wearSightL,jdbcType=VARCHAR},
+      wear_sight_r = #{wearSightR,jdbcType=VARCHAR},
+      customer_complaint_content = #{customerComplaintContent,jdbcType=VARCHAR},
+      store_examination_result = #{storeExaminationResult,jdbcType=VARCHAR},
+      glasses_examination_result = #{glassesExaminationResult,jdbcType=VARCHAR},
+      procurator = #{procurator,jdbcType=VARCHAR},
+      date = #{date,jdbcType=DATE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

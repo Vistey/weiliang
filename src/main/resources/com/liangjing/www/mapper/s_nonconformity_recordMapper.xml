@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liangjing.www.dao.S_nonconformity_recordMapper">
+  <resultMap id="BaseResultMap" type="com.liangjing.www.model.S_nonconformity_record">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="today" jdbcType="DATE" property="today" />
+    <result column="batch_number" jdbcType="VARCHAR" property="batchNumber" />
+    <result column="description_goods" jdbcType="VARCHAR" property="descriptionGoods" />
+    <result column="contract" jdbcType="VARCHAR" property="contract" />
+    <result column="manufacturer" jdbcType="VARCHAR" property="manufacturer" />
+    <result column="quality_problem" jdbcType="VARCHAR" property="qualityProblem" />
+    <result column="inspector_suggested" jdbcType="VARCHAR" property="inspectorSuggested" />
+    <result column="audit_conclusion" jdbcType="VARCHAR" property="auditConclusion" />
+    <result column="event_tracking" jdbcType="VARCHAR" property="eventTracking" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, today, batch_number, description_goods, contract, manufacturer, quality_problem, 
+    inspector_suggested, audit_conclusion, event_tracking
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from s_nonconformity_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from s_nonconformity_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.liangjing.www.model.S_nonconformity_record">
+    insert into s_nonconformity_record (id, today, batch_number, 
+      description_goods, contract, manufacturer, 
+      quality_problem, inspector_suggested, audit_conclusion, 
+      event_tracking)
+    values (#{id,jdbcType=INTEGER}, #{today,jdbcType=DATE}, #{batchNumber,jdbcType=VARCHAR}, 
+      #{descriptionGoods,jdbcType=VARCHAR}, #{contract,jdbcType=VARCHAR}, #{manufacturer,jdbcType=VARCHAR}, 
+      #{qualityProblem,jdbcType=VARCHAR}, #{inspectorSuggested,jdbcType=VARCHAR}, #{auditConclusion,jdbcType=VARCHAR}, 
+      #{eventTracking,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.liangjing.www.model.S_nonconformity_record">
+    insert into s_nonconformity_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="today != null">
+        today,
+      </if>
+      <if test="batchNumber != null">
+        batch_number,
+      </if>
+      <if test="descriptionGoods != null">
+        description_goods,
+      </if>
+      <if test="contract != null">
+        contract,
+      </if>
+      <if test="manufacturer != null">
+        manufacturer,
+      </if>
+      <if test="qualityProblem != null">
+        quality_problem,
+      </if>
+      <if test="inspectorSuggested != null">
+        inspector_suggested,
+      </if>
+      <if test="auditConclusion != null">
+        audit_conclusion,
+      </if>
+      <if test="eventTracking != null">
+        event_tracking,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="today != null">
+        #{today,jdbcType=DATE},
+      </if>
+      <if test="batchNumber != null">
+        #{batchNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="descriptionGoods != null">
+        #{descriptionGoods,jdbcType=VARCHAR},
+      </if>
+      <if test="contract != null">
+        #{contract,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturer != null">
+        #{manufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="qualityProblem != null">
+        #{qualityProblem,jdbcType=VARCHAR},
+      </if>
+      <if test="inspectorSuggested != null">
+        #{inspectorSuggested,jdbcType=VARCHAR},
+      </if>
+      <if test="auditConclusion != null">
+        #{auditConclusion,jdbcType=VARCHAR},
+      </if>
+      <if test="eventTracking != null">
+        #{eventTracking,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.liangjing.www.model.S_nonconformity_record">
+    update s_nonconformity_record
+    <set>
+      <if test="today != null">
+        today = #{today,jdbcType=DATE},
+      </if>
+      <if test="batchNumber != null">
+        batch_number = #{batchNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="descriptionGoods != null">
+        description_goods = #{descriptionGoods,jdbcType=VARCHAR},
+      </if>
+      <if test="contract != null">
+        contract = #{contract,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturer != null">
+        manufacturer = #{manufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="qualityProblem != null">
+        quality_problem = #{qualityProblem,jdbcType=VARCHAR},
+      </if>
+      <if test="inspectorSuggested != null">
+        inspector_suggested = #{inspectorSuggested,jdbcType=VARCHAR},
+      </if>
+      <if test="auditConclusion != null">
+        audit_conclusion = #{auditConclusion,jdbcType=VARCHAR},
+      </if>
+      <if test="eventTracking != null">
+        event_tracking = #{eventTracking,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.liangjing.www.model.S_nonconformity_record">
+    update s_nonconformity_record
+    set today = #{today,jdbcType=DATE},
+      batch_number = #{batchNumber,jdbcType=VARCHAR},
+      description_goods = #{descriptionGoods,jdbcType=VARCHAR},
+      contract = #{contract,jdbcType=VARCHAR},
+      manufacturer = #{manufacturer,jdbcType=VARCHAR},
+      quality_problem = #{qualityProblem,jdbcType=VARCHAR},
+      inspector_suggested = #{inspectorSuggested,jdbcType=VARCHAR},
+      audit_conclusion = #{auditConclusion,jdbcType=VARCHAR},
+      event_tracking = #{eventTracking,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

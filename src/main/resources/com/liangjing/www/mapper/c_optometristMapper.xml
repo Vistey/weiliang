@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liangjing.www.dao.C_optometristMapper">
+    <resultMap id="BaseResultMap" type="com.liangjing.www.model.C_optometrist">
+        <id column="ID_card" jdbcType="VARCHAR" property="idCard"/>
+        <result column="date_of_issue" jdbcType="DATE" property="dateOfIssue"/>
+        <result column="certificate_number" jdbcType="VARCHAR" property="certificateNumber"/>
+        <result column="level" jdbcType="VARCHAR" property="level"/>
+        <result column="Theoretical_score" jdbcType="VARCHAR" property="theoreticalScore"/>
+        <result column="operation_score" jdbcType="VARCHAR" property="operationScore"/>
+        <result column="evaluate_score" jdbcType="VARCHAR" property="evaluateScore"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    ID_card, date_of_issue, certificate_number, level, Theoretical_score, operation_score, 
+    evaluate_score
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from c_optometrist
+        where ID_card = #{idCard,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from c_optometrist
+    where ID_card = #{idCard,jdbcType=VARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.liangjing.www.model.C_optometrist">
+    insert into c_optometrist (ID_card, date_of_issue, certificate_number, 
+      level, Theoretical_score, operation_score, 
+      evaluate_score)
+    values (#{idCard,jdbcType=VARCHAR}, #{dateOfIssue,jdbcType=DATE}, #{certificateNumber,jdbcType=VARCHAR}, 
+      #{level,jdbcType=VARCHAR}, #{theoreticalScore,jdbcType=VARCHAR}, #{operationScore,jdbcType=VARCHAR}, 
+      #{evaluateScore,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.liangjing.www.model.C_optometrist">
+        insert into c_optometrist
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="idCard != null">
+                ID_card,
+            </if>
+            <if test="dateOfIssue != null">
+                date_of_issue,
+            </if>
+            <if test="certificateNumber != null">
+                certificate_number,
+            </if>
+            <if test="level != null">
+                level,
+            </if>
+            <if test="theoreticalScore != null">
+                Theoretical_score,
+            </if>
+            <if test="operationScore != null">
+                operation_score,
+            </if>
+            <if test="evaluateScore != null">
+                evaluate_score,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="idCard != null">
+                #{idCard,jdbcType=VARCHAR},
+            </if>
+            <if test="dateOfIssue != null">
+                #{dateOfIssue,jdbcType=DATE},
+            </if>
+            <if test="certificateNumber != null">
+                #{certificateNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="level != null">
+                #{level,jdbcType=VARCHAR},
+            </if>
+            <if test="theoreticalScore != null">
+                #{theoreticalScore,jdbcType=VARCHAR},
+            </if>
+            <if test="operationScore != null">
+                #{operationScore,jdbcType=VARCHAR},
+            </if>
+            <if test="evaluateScore != null">
+                #{evaluateScore,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.liangjing.www.model.C_optometrist">
+        update c_optometrist
+        <set>
+            <if test="dateOfIssue != null">
+                date_of_issue = #{dateOfIssue,jdbcType=DATE},
+            </if>
+            <if test="certificateNumber != null">
+                certificate_number = #{certificateNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="level != null">
+                level = #{level,jdbcType=VARCHAR},
+            </if>
+            <if test="theoreticalScore != null">
+                Theoretical_score = #{theoreticalScore,jdbcType=VARCHAR},
+            </if>
+            <if test="operationScore != null">
+                operation_score = #{operationScore,jdbcType=VARCHAR},
+            </if>
+            <if test="evaluateScore != null">
+                evaluate_score = #{evaluateScore,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ID_card = #{idCard,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.liangjing.www.model.C_optometrist">
+    update c_optometrist
+    set date_of_issue = #{dateOfIssue,jdbcType=DATE},
+      certificate_number = #{certificateNumber,jdbcType=VARCHAR},
+      level = #{level,jdbcType=VARCHAR},
+      Theoretical_score = #{theoreticalScore,jdbcType=VARCHAR},
+      operation_score = #{operationScore,jdbcType=VARCHAR},
+      evaluate_score = #{evaluateScore,jdbcType=VARCHAR}
+    where ID_card = #{idCard,jdbcType=VARCHAR}
+  </update>
+    <select id="allOptometrist" resultType="com.liangjing.www.model.C_optometrist">
+    SELECT
+  c_optometrist.ID_card idCard,
+  date_of_issue                  dateOfIssue,
+  certificate_number             certificateNumber,
+  level,
+  Theoretical_score theoreticalScore,
+  operation_score operationScore,
+  evaluate_score evaluateScore,
+  staff.work_unit workUnit,
+  staff.*
+FROM c_optometrist, staff
+WHERE c_optometrist.ID_card = staff.ID_card
+  </select>
+
+</mapper>

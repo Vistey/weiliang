@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liangjing.www.dao.C_contact_lens_clerkMapper">
+  <resultMap id="BaseResultMap" type="com.liangjing.www.model.C_contact_lens_clerk">
+    <id column="ID_card" jdbcType="VARCHAR" property="idCard" />
+    <result column="date_of_issue" jdbcType="DATE" property="dateOfIssue" />
+    <result column="certificate_number" jdbcType="VARCHAR" property="certificateNumber" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID_card, date_of_issue, certificate_number
+  </sql>
+
+  <select id="allCLC" resultType="com.liangjing.www.model.C_contact_lens_clerk">
+    SELECT c_contact_lens_clerk.ID_card idCard,
+    date_of_issue dateOfIssue,
+    certificate_number certificateNumber,
+    evaluate_score evaluateScore,
+    staff.work_unit workUnit,
+    staff.*
+    FROM c_contact_lens_clerk,staff
+    WHERE c_contact_lens_clerk.ID_card = staff.ID_card
+  </select>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from c_contact_lens_clerk
+    where ID_card = #{idCard,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from c_contact_lens_clerk
+    where ID_card = #{idCard,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.liangjing.www.model.C_contact_lens_clerk">
+    insert into c_contact_lens_clerk (ID_card, date_of_issue, certificate_number
+      )
+    values (#{idCard,jdbcType=VARCHAR}, #{dateOfIssue,jdbcType=DATE}, #{certificateNumber,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.liangjing.www.model.C_contact_lens_clerk">
+    insert into c_contact_lens_clerk
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="idCard != null">
+        ID_card,
+      </if>
+      <if test="dateOfIssue != null">
+        date_of_issue,
+      </if>
+      <if test="certificateNumber != null">
+        certificate_number,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="idCard != null">
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="dateOfIssue != null">
+        #{dateOfIssue,jdbcType=DATE},
+      </if>
+      <if test="certificateNumber != null">
+        #{certificateNumber,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.liangjing.www.model.C_contact_lens_clerk">
+    update c_contact_lens_clerk
+    <set>
+      <if test="dateOfIssue != null">
+        date_of_issue = #{dateOfIssue,jdbcType=DATE},
+      </if>
+      <if test="certificateNumber != null">
+        certificate_number = #{certificateNumber,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID_card = #{idCard,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.liangjing.www.model.C_contact_lens_clerk">
+    update c_contact_lens_clerk
+    set date_of_issue = #{dateOfIssue,jdbcType=DATE},
+      certificate_number = #{certificateNumber,jdbcType=VARCHAR}
+    where ID_card = #{idCard,jdbcType=VARCHAR}
+  </update>
+</mapper>

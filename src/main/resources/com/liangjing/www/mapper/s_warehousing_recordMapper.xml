@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liangjing.www.dao.S_warehousing_recordMapper">
+  <resultMap id="BaseResultMap" type="com.liangjing.www.model.S_warehousing_record">
+    <id column="batch_number" jdbcType="VARCHAR" property="batchNumber" />
+    <result column="commodity_type" jdbcType="VARCHAR" property="commodityType" />
+    <result column="purchase_date" jdbcType="DATE" property="purchaseDate" />
+    <result column="Inspection_date" jdbcType="DATE" property="inspectionDate" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="vertex_focus" jdbcType="VARCHAR" property="vertexFocus" />
+    <result column="chinese_logo" jdbcType="VARCHAR" property="chineseLogo" />
+    <result column="quantity_purchased" jdbcType="INTEGER" property="quantityPurchased" />
+    <result column="stock_number" jdbcType="INTEGER" property="stockNumber" />
+    <result column="package_integrity" jdbcType="INTEGER" property="packageIntegrity" />
+    <result column="production_date" jdbcType="DATE" property="productionDate" />
+    <result column="term_of_validity" jdbcType="DATE" property="termOfValidity" />
+    <result column="buying_price" jdbcType="INTEGER" property="buyingPrice" />
+    <result column="acceptance_conclusion" jdbcType="VARCHAR" property="acceptanceConclusion" />
+    <result column="confirming_person" jdbcType="VARCHAR" property="confirmingPerson" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    batch_number, commodity_type, purchase_date, Inspection_date, product_name, company_name, 
+    vertex_focus, chinese_logo, quantity_purchased, stock_number, package_integrity, 
+    production_date, term_of_validity, buying_price, acceptance_conclusion, confirming_person, 
+    state
+  </sql>
+
+  <select id="getAllBatchNumber" resultType="String">
+    SELECT batch_number FROM S_warehousing_record
+  </select>
+  <select id="getallWarehousing" resultType="com.liangjing.www.model.S_warehousing_record">
+    SELECT
+  batch_number batchNumber,
+  commodity_type commodityType,
+  purchase_date purchaseDate,
+  Inspection_date inspectionDate,
+  product_name productName,
+  company_name companyName,
+  vertex_focus vertexFocus,
+  chinese_logo chineseLogo,
+  quantity_purchased quantityPurchased,
+  stock_number stockNumber,
+  package_integrity packageIntegrity,
+  production_date productionDate,
+  term_of_validity termOfValidity,
+  buying_price buyingPrice,
+  acceptance_conclusion acceptanceConclusion,
+  confirming_person confirmingPerson,
+  state
+FROM S_warehousing_record ORDER BY purchaseDate DESC
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from s_warehousing_record
+    where batch_number = #{batchNumber,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from s_warehousing_record
+    where batch_number = #{batchNumber,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.liangjing.www.model.S_warehousing_record">
+    insert into s_warehousing_record (batch_number, commodity_type, purchase_date, 
+      Inspection_date, product_name, company_name, 
+      vertex_focus, chinese_logo, quantity_purchased, 
+      stock_number, package_integrity, production_date, 
+      term_of_validity, buying_price, acceptance_conclusion, 
+      confirming_person, state)
+    values (#{batchNumber,jdbcType=VARCHAR}, #{commodityType,jdbcType=VARCHAR}, #{purchaseDate,jdbcType=DATE}, 
+      #{inspectionDate,jdbcType=DATE}, #{productName,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, 
+      #{vertexFocus,jdbcType=VARCHAR}, #{chineseLogo,jdbcType=VARCHAR}, #{quantityPurchased,jdbcType=INTEGER}, 
+      #{stockNumber,jdbcType=INTEGER}, #{packageIntegrity,jdbcType=INTEGER}, #{productionDate,jdbcType=DATE}, 
+      #{termOfValidity,jdbcType=DATE}, #{buyingPrice,jdbcType=INTEGER}, #{acceptanceConclusion,jdbcType=VARCHAR}, 
+      #{confirmingPerson,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.liangjing.www.model.S_warehousing_record">
+    insert into s_warehousing_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="batchNumber != null">
+        batch_number,
+      </if>
+      <if test="commodityType != null">
+        commodity_type,
+      </if>
+      <if test="purchaseDate != null">
+        purchase_date,
+      </if>
+      <if test="inspectionDate != null">
+        Inspection_date,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="companyName != null">
+        company_name,
+      </if>
+      <if test="vertexFocus != null">
+        vertex_focus,
+      </if>
+      <if test="chineseLogo != null">
+        chinese_logo,
+      </if>
+      <if test="quantityPurchased != null">
+        quantity_purchased,
+      </if>
+      <if test="stockNumber != null">
+        stock_number,
+      </if>
+      <if test="packageIntegrity != null">
+        package_integrity,
+      </if>
+      <if test="productionDate != null">
+        production_date,
+      </if>
+      <if test="termOfValidity != null">
+        term_of_validity,
+      </if>
+      <if test="buyingPrice != null">
+        buying_price,
+      </if>
+      <if test="acceptanceConclusion != null">
+        acceptance_conclusion,
+      </if>
+      <if test="confirmingPerson != null">
+        confirming_person,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="batchNumber != null">
+        #{batchNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="commodityType != null">
+        #{commodityType,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseDate != null">
+        #{purchaseDate,jdbcType=DATE},
+      </if>
+      <if test="inspectionDate != null">
+        #{inspectionDate,jdbcType=DATE},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="vertexFocus != null">
+        #{vertexFocus,jdbcType=VARCHAR},
+      </if>
+      <if test="chineseLogo != null">
+        #{chineseLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="quantityPurchased != null">
+        #{quantityPurchased,jdbcType=INTEGER},
+      </if>
+      <if test="stockNumber != null">
+        #{stockNumber,jdbcType=INTEGER},
+      </if>
+      <if test="packageIntegrity != null">
+        #{packageIntegrity,jdbcType=INTEGER},
+      </if>
+      <if test="productionDate != null">
+        #{productionDate,jdbcType=DATE},
+      </if>
+      <if test="termOfValidity != null">
+        #{termOfValidity,jdbcType=DATE},
+      </if>
+      <if test="buyingPrice != null">
+        #{buyingPrice,jdbcType=INTEGER},
+      </if>
+      <if test="acceptanceConclusion != null">
+        #{acceptanceConclusion,jdbcType=VARCHAR},
+      </if>
+      <if test="confirmingPerson != null">
+        #{confirmingPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.liangjing.www.model.S_warehousing_record">
+    update s_warehousing_record
+    <set>
+      <if test="commodityType != null">
+        commodity_type = #{commodityType,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseDate != null">
+        purchase_date = #{purchaseDate,jdbcType=DATE},
+      </if>
+      <if test="inspectionDate != null">
+        Inspection_date = #{inspectionDate,jdbcType=DATE},
+      </if>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="vertexFocus != null">
+        vertex_focus = #{vertexFocus,jdbcType=VARCHAR},
+      </if>
+      <if test="chineseLogo != null">
+        chinese_logo = #{chineseLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="quantityPurchased != null">
+        quantity_purchased = #{quantityPurchased,jdbcType=INTEGER},
+      </if>
+      <if test="stockNumber != null">
+        stock_number = #{stockNumber,jdbcType=INTEGER},
+      </if>
+      <if test="packageIntegrity != null">
+        package_integrity = #{packageIntegrity,jdbcType=INTEGER},
+      </if>
+      <if test="productionDate != null">
+        production_date = #{productionDate,jdbcType=DATE},
+      </if>
+      <if test="termOfValidity != null">
+        term_of_validity = #{termOfValidity,jdbcType=DATE},
+      </if>
+      <if test="buyingPrice != null">
+        buying_price = #{buyingPrice,jdbcType=INTEGER},
+      </if>
+      <if test="acceptanceConclusion != null">
+        acceptance_conclusion = #{acceptanceConclusion,jdbcType=VARCHAR},
+      </if>
+      <if test="confirmingPerson != null">
+        confirming_person = #{confirmingPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+    </set>
+    where batch_number = #{batchNumber,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.liangjing.www.model.S_warehousing_record">
+    update s_warehousing_record
+    set commodity_type = #{commodityType,jdbcType=VARCHAR},
+      purchase_date = #{purchaseDate,jdbcType=DATE},
+      Inspection_date = #{inspectionDate,jdbcType=DATE},
+      product_name = #{productName,jdbcType=VARCHAR},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      vertex_focus = #{vertexFocus,jdbcType=VARCHAR},
+      chinese_logo = #{chineseLogo,jdbcType=VARCHAR},
+      quantity_purchased = #{quantityPurchased,jdbcType=INTEGER},
+      stock_number = #{stockNumber,jdbcType=INTEGER},
+      package_integrity = #{packageIntegrity,jdbcType=INTEGER},
+      production_date = #{productionDate,jdbcType=DATE},
+      term_of_validity = #{termOfValidity,jdbcType=DATE},
+      buying_price = #{buyingPrice,jdbcType=INTEGER},
+      acceptance_conclusion = #{acceptanceConclusion,jdbcType=VARCHAR},
+      confirming_person = #{confirmingPerson,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER}
+    where batch_number = #{batchNumber,jdbcType=VARCHAR}
+  </update>
+</mapper>

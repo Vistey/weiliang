@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liangjing.www.dao.R_medical_device_licenseMapper">
+  <resultMap id="BaseResultMap" type="com.liangjing.www.model.R_medical_device_license">
+    <id column="credit_code" jdbcType="VARCHAR" property="creditCode" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="registration_address" jdbcType="VARCHAR" property="registrationAddress" />
+    <result column="legal_person" jdbcType="VARCHAR" property="legalPerson" />
+    <result column="responsible_person" jdbcType="VARCHAR" property="responsiblePerson" />
+    <result column="quality_manager" jdbcType="VARCHAR" property="qualityManager" />
+    <result column="warehouse_address" jdbcType="VARCHAR" property="warehouseAddress" />
+    <result column="scope_of_business" jdbcType="VARCHAR" property="scopeOfBusiness" />
+    <result column="valid_from" jdbcType="DATE" property="validFrom" />
+    <result column="valid_until" jdbcType="DATE" property="validUntil" />
+    <result column="scanning_url" jdbcType="VARCHAR" property="scanningUrl" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    credit_code, company_name, registration_address, legal_person, responsible_person, 
+    quality_manager, warehouse_address, scope_of_business, valid_from, valid_until, scanning_url, 
+    state
+  </sql>
+
+  <select id="getGmpMedicalLicense" parameterType="String" resultType="com.liangjing.www.model.R_medical_device_license">
+    SELECT
+  credit_code creditCode,
+  company_name companyName,
+  registration_address registrationAddress,
+  legal_person legalPerson,
+  responsible_person responsiblePerson,
+  quality_manager qualityManager,
+  warehouse_address warehouseAddress,
+  scope_of_business scopeOfBusiness,
+  valid_from validFrom,
+  valid_until validUntil,
+  scanning_url scanningUrl,
+  state
+    FROM r_medical_device_license
+    WHERE company_name != #{workUnit}
+  </select>
+  <select id="getOurMedicalLicense" parameterType="String" resultType="com.liangjing.www.model.R_medical_device_license">
+    SELECT
+  credit_code creditCode,
+  company_name companyName,
+  registration_address registrationAddress,
+  legal_person legalPerson,
+  responsible_person responsiblePerson,
+  quality_manager qualityManager,
+  warehouse_address warehouseAddress,
+  scope_of_business scopeOfBusiness,
+  valid_from validFrom,
+  valid_until validUntil,
+  scanning_url scanningUrl,
+  state
+    FROM r_medical_device_license
+    WHERE company_name = #{workUnit}
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from r_medical_device_license
+    where credit_code = #{creditCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from r_medical_device_license
+    where credit_code = #{creditCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.liangjing.www.model.R_medical_device_license">
+    insert into r_medical_device_license (credit_code, company_name, registration_address, 
+      legal_person, responsible_person, quality_manager, 
+      warehouse_address, scope_of_business, valid_from, 
+      valid_until, scanning_url, state
+      )
+    values (#{creditCode,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, #{registrationAddress,jdbcType=VARCHAR}, 
+      #{legalPerson,jdbcType=VARCHAR}, #{responsiblePerson,jdbcType=VARCHAR}, #{qualityManager,jdbcType=VARCHAR}, 
+      #{warehouseAddress,jdbcType=VARCHAR}, #{scopeOfBusiness,jdbcType=VARCHAR}, #{validFrom,jdbcType=DATE}, 
+      #{validUntil,jdbcType=DATE}, #{scanningUrl,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.liangjing.www.model.R_medical_device_license">
+    insert into r_medical_device_license
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="creditCode != null">
+        credit_code,
+      </if>
+      <if test="companyName != null">
+        company_name,
+      </if>
+      <if test="registrationAddress != null">
+        registration_address,
+      </if>
+      <if test="legalPerson != null">
+        legal_person,
+      </if>
+      <if test="responsiblePerson != null">
+        responsible_person,
+      </if>
+      <if test="qualityManager != null">
+        quality_manager,
+      </if>
+      <if test="warehouseAddress != null">
+        warehouse_address,
+      </if>
+      <if test="scopeOfBusiness != null">
+        scope_of_business,
+      </if>
+      <if test="validFrom != null">
+        valid_from,
+      </if>
+      <if test="validUntil != null">
+        valid_until,
+      </if>
+      <if test="scanningUrl != null">
+        scanning_url,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="creditCode != null">
+        #{creditCode,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationAddress != null">
+        #{registrationAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPerson != null">
+        #{legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="responsiblePerson != null">
+        #{responsiblePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="qualityManager != null">
+        #{qualityManager,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouseAddress != null">
+        #{warehouseAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="scopeOfBusiness != null">
+        #{scopeOfBusiness,jdbcType=VARCHAR},
+      </if>
+      <if test="validFrom != null">
+        #{validFrom,jdbcType=DATE},
+      </if>
+      <if test="validUntil != null">
+        #{validUntil,jdbcType=DATE},
+      </if>
+      <if test="scanningUrl != null">
+        #{scanningUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.liangjing.www.model.R_medical_device_license">
+    update r_medical_device_license
+    <set>
+      <if test="companyName != null">
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationAddress != null">
+        registration_address = #{registrationAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPerson != null">
+        legal_person = #{legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="responsiblePerson != null">
+        responsible_person = #{responsiblePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="qualityManager != null">
+        quality_manager = #{qualityManager,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouseAddress != null">
+        warehouse_address = #{warehouseAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="scopeOfBusiness != null">
+        scope_of_business = #{scopeOfBusiness,jdbcType=VARCHAR},
+      </if>
+      <if test="validFrom != null">
+        valid_from = #{validFrom,jdbcType=DATE},
+      </if>
+      <if test="validUntil != null">
+        valid_until = #{validUntil,jdbcType=DATE},
+      </if>
+      <if test="scanningUrl != null">
+        scanning_url = #{scanningUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+    </set>
+    where credit_code = #{creditCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.liangjing.www.model.R_medical_device_license">
+    update r_medical_device_license
+    set company_name = #{companyName,jdbcType=VARCHAR},
+      registration_address = #{registrationAddress,jdbcType=VARCHAR},
+      legal_person = #{legalPerson,jdbcType=VARCHAR},
+      responsible_person = #{responsiblePerson,jdbcType=VARCHAR},
+      quality_manager = #{qualityManager,jdbcType=VARCHAR},
+      warehouse_address = #{warehouseAddress,jdbcType=VARCHAR},
+      scope_of_business = #{scopeOfBusiness,jdbcType=VARCHAR},
+      valid_from = #{validFrom,jdbcType=DATE},
+      valid_until = #{validUntil,jdbcType=DATE},
+      scanning_url = #{scanningUrl,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER}
+    where credit_code = #{creditCode,jdbcType=VARCHAR}
+  </update>
+</mapper>
