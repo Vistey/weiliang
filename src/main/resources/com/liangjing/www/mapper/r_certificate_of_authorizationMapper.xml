@@ -10,6 +10,10 @@
   <sql id="Base_Column_List">
     company_name, scanning_url, validity_date, state
   </sql>
+
+  <select id="getCertificateExpired" resultType="String">
+    SELECT company_name FROM r_certificate_of_authorization WHERE validity_date &lt; now()
+  </select>
   <select id="getCertificateOfAuthorization" resultType="com.liangjing.www.model.R_certificate_of_authorization">
     SELECT
   company_name companyName,

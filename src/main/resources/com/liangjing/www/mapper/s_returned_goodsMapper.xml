@@ -41,14 +41,12 @@
       customer_address, batch_number_l, batch_number_r, 
       glasses_degree_l, glasses_degree_r, optician_date, 
       returned_date, handler, returned_reason, 
-      findings, glasses_l_degree, glasses_r_degree, 
-      date_optician, date_returned)
+      handler_findings, quality_controller)
     values (#{id,jdbcType=INTEGER}, #{customerPhone,jdbcType=VARCHAR}, #{customerPostcard,jdbcType=VARCHAR}, 
       #{customerAddress,jdbcType=VARCHAR}, #{batchNumberL,jdbcType=VARCHAR}, #{batchNumberR,jdbcType=VARCHAR}, 
       #{glassesDegreeL,jdbcType=VARCHAR}, #{glassesDegreeR,jdbcType=VARCHAR}, #{opticianDate,jdbcType=DATE}, 
       #{returnedDate,jdbcType=DATE}, #{handler,jdbcType=VARCHAR}, #{returnedReason,jdbcType=VARCHAR}, 
-      #{findings,jdbcType=VARCHAR}, #{glassesLDegree,jdbcType=VARCHAR}, #{glassesRDegree,jdbcType=VARCHAR}, 
-      #{dateOptician,jdbcType=DATE}, #{dateReturned,jdbcType=DATE})
+      #{handlerFindings,jdbcType=VARCHAR}, #{qualityController,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.liangjing.www.model.S_returned_goods">
     insert into s_returned_goods
@@ -89,20 +87,11 @@
       <if test="returnedReason != null">
         returned_reason,
       </if>
-      <if test="findings != null">
-        findings,
+      <if test="handlerFindings != null">
+        handler_findings,
       </if>
-      <if test="glassesLDegree != null">
-        glasses_l_degree,
-      </if>
-      <if test="glassesRDegree != null">
-        glasses_r_degree,
-      </if>
-      <if test="dateOptician != null">
-        date_optician,
-      </if>
-      <if test="dateReturned != null">
-        date_returned,
+      <if test="qualityController != null">
+        quality_controller,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -142,20 +131,11 @@
       <if test="returnedReason != null">
         #{returnedReason,jdbcType=VARCHAR},
       </if>
-      <if test="findings != null">
-        #{findings,jdbcType=VARCHAR},
+      <if test="handlerFindings != null">
+        #{handlerFindings,jdbcType=VARCHAR},
       </if>
-      <if test="glassesLDegree != null">
-        #{glassesLDegree,jdbcType=VARCHAR},
-      </if>
-      <if test="glassesRDegree != null">
-        #{glassesRDegree,jdbcType=VARCHAR},
-      </if>
-      <if test="dateOptician != null">
-        #{dateOptician,jdbcType=DATE},
-      </if>
-      <if test="dateReturned != null">
-        #{dateReturned,jdbcType=DATE},
+      <if test="qualityController != null">
+        #{qualityController,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -190,25 +170,16 @@
         returned_date = #{returnedDate,jdbcType=DATE},
       </if>
       <if test="handler != null">
-        handler = #{handler,jdbcType=VARCHAR},
+        handler_findings = #{handlerFindings,jdbcType=VARCHAR},
       </if>
       <if test="returnedReason != null">
         returned_reason = #{returnedReason,jdbcType=VARCHAR},
       </if>
-      <if test="findings != null">
-        findings = #{findings,jdbcType=VARCHAR},
+      <if test="handlerFindings != null">
+        handler_findings = #{handlerFindings,jdbcType=VARCHAR},
       </if>
-      <if test="glassesLDegree != null">
-        glasses_l_degree = #{glassesLDegree,jdbcType=VARCHAR},
-      </if>
-      <if test="glassesRDegree != null">
-        glasses_r_degree = #{glassesRDegree,jdbcType=VARCHAR},
-      </if>
-      <if test="dateOptician != null">
-        date_optician = #{dateOptician,jdbcType=DATE},
-      </if>
-      <if test="dateReturned != null">
-        date_returned = #{dateReturned,jdbcType=DATE},
+      <if test="qualityController != null">
+        quality_controller = #{qualityController,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -226,11 +197,8 @@
       returned_date = #{returnedDate,jdbcType=DATE},
       handler = #{handler,jdbcType=VARCHAR},
       returned_reason = #{returnedReason,jdbcType=VARCHAR},
-      findings = #{findings,jdbcType=VARCHAR},
-      glasses_l_degree = #{glassesLDegree,jdbcType=VARCHAR},
-      glasses_r_degree = #{glassesRDegree,jdbcType=VARCHAR},
-      date_optician = #{dateOptician,jdbcType=DATE},
-      date_returned = #{dateReturned,jdbcType=DATE}
+      handler_findings = #{handlerFindings,jdbcType=VARCHAR},
+      quality_controller = #{qualityController,jdbcType=VARCHAR},
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

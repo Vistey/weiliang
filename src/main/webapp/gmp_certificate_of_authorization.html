@@ -79,9 +79,6 @@
                 <li>
                     <a href="personnel_management.html"><i class="fa fa-user"></i> <span class="nav-label">人员管理</span></a>
                 </li>
-                <li>
-                    <a href="indexwwwww.html"><i class="fa fa-desktop"></i> <span class="nav-label">系统维护</span></a>
-                </li>
             </ul>
 
         </div>
@@ -91,65 +88,33 @@
         <div class="row border-bottom">
             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
-                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary "><i class="fa fa-bars"></i> </a>
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="index.html#"><i class="fa fa-bars"></i>
+                    </a>
                     <!--TODO 下面搜索功能要重写-->
-                    <form role="search" class="navbar-form-custom" action="search_results.html">
-                        <div class="form-group">
-                            <input type="text" placeholder="Search for something..." class="form-control" name="top-search"
-                                   id="top-search">
-                        </div>
-                    </form>
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <!--资质证书 保质期过期提示-->
                     <li class="dropdown">
-                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="index.html#">
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown">
                             <i class="fa fa-bell"></i>
                             <!--TODO 信息总数-->
-                            <span class="label label-primary">8</span>
+                            <span class="label badge-danger" id="promptList">1</span>
                         </a>
                         <!--TODO 下面的内容需要调整-->
-                        <ul class="dropdown-menu dropdown-alerts">
+                        <ul class="dropdown-menu dropdown-alerts" id="shouList">
                             <li>
-                                <a href="mailbox.html">
-                                    <div>
-                                        <i class="fa fa-envelope fa-fw"></i> You have 16 messages
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="profile.html">
-                                    <div>
-                                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                        <span class="pull-right text-muted small">12 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="grid_options.html">
-                                    <div>
-                                        <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <div class="text-center link-block">
-                                    <a href="notifications.html">
-                                        <strong>See All Alerts</strong>
-                                        <i class="fa fa-angle-right"></i>
-                                    </a>
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i>证件过期
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
                                 </div>
                             </li>
+                            <li class="divider"></li>
+
                         </ul>
                     </li>
 
                     <li>
-                        <a href="login.html">
+                        <a id="logout">
                             <i class="fa fa-sign-out"></i> Log out
                         </a>
                     </li>
@@ -232,7 +197,7 @@
 <!-- Custom and plugin javascript -->
 <script src="js/inspinia.js"></script>
 <script src="js/plugins/pace/pace.min.js"></script>
-
+<script src="js/userset.js"></script>
 <script>
     $(function () {
         $.ajax({
@@ -245,16 +210,16 @@
                 for (var i = 0; i < json.length; i++) {
                     tmpLi += '<li class="list-group-item">' +
                         '<a data-toggle="tab" href="#tab-' + i + '">' +
-                        '<strong>'+json[i].companyName+'</strong>' +
+                        '<strong>' + json[i].companyName + '</strong>' +
                         '<div class="small m-t-xs">' +
-                        '<p> 授权过期日期：'+ json[i].validityDate +'<br/>';
-                    if (json[i].state === 1) {
+                        '<p> 授权过期日期：' + json[i].validityDate + '<br/>';
+                    if (json[i].state === 1 && Date.parse(json[i].validityDate) > new Date()) {
                         tmpLi += '<span class="label pull-right label-primary">证件有效</span>';
                     } else {
                         tmpLi += '<span class="label pull-right label-danger">证件失效</span>';
                     }
                     tmpLi += '</p></div></a></li>';
-                    tmpDiv += '<div id="tab-'+ i +'" class="tab-pane">'+json[i].scanningUrl+' </div>';
+                    tmpDiv += '<div id="tab-' + i + '" class="tab-pane">' + json[i].scanningUrl + ' </div>';
                 }
                 $("#thisListLi").html(tmpLi);
                 $("#thisListDiv").html(tmpDiv);

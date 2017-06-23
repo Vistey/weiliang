@@ -21,6 +21,9 @@
     state
   </sql>
 
+  <select id="getCertificateExpired" resultType="String">
+    SELECT company_name FROM r_medical_device_license WHERE valid_until &lt; now()
+  </select>
   <select id="getGmpMedicalLicense" parameterType="String" resultType="com.liangjing.www.model.R_medical_device_license">
     SELECT
   credit_code creditCode,

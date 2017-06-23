@@ -20,4 +20,6 @@ public interface R_medical_device_registrationMapper {
   int updateByPrimaryKey(R_medical_device_registration record);
 
   List<R_medical_device_registration> getMedicalDeviceRegistration();
+
+  List<String> getCertificateExpired();
 }

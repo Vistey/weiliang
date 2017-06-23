@@ -5,7 +5,6 @@ import com.liangjing.www.service.RecordService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
@@ -106,6 +105,7 @@ public class RecordController {
   @RequestMapping("/addTraceRecord.do")
   @ResponseBody
   public boolean addTraceRecord(S_trace_record record) {
+    record.setAddTime(new Date());
     return service.addTraceRecord(record);
   }
 
@@ -121,6 +121,18 @@ public class RecordController {
   }
 
   /**
+   * 增加员工培训计划
+   *
+   * @param cultivateRecord {@link S_cultivate_record} 员工培训记录
+   * @return {@link Boolean} true添加成功 false 添加失败
+   */
+  @RequestMapping("/addTrainingPlan.do")
+  @ResponseBody
+  public boolean addTrainingPlan(S_cultivate_record cultivateRecord) {
+    return service.addTrainingPlan(cultivateRecord);
+  }
+
+  /**
    * 获取所有不合格产品记录
    *
    * @return {@link S_nonconformity_record} 不合格产品记录
@@ -129,6 +141,18 @@ public class RecordController {
   @ResponseBody
   public List<S_nonconformity_record> getNonconformity() {
     return service.getNonconformity();
+  }
+
+  /**
+   * 增加不合格产品记录
+   *
+   * @param record {@link S_nonconformity_record} 不合格产品记录
+   * @return {@link Boolean} true添加成功 false 添加失败
+   */
+  @RequestMapping("/addNonconformity.do")
+  @ResponseBody
+  public boolean addNonconformity(S_nonconformity_record record){
+    return service.addNonconformity(record);
   }
 
   /**
@@ -143,24 +167,63 @@ public class RecordController {
   }
 
   /**
+   * 增加顾客退换片记录
+   *
+   * @param goods {@link S_returned_goods} 顾客退换片记录
+   * @return {@link Boolean} true添加成功 false 添加失败
+   */
+  @RequestMapping("/addReturnedGoods.do")
+  @ResponseBody
+  public boolean addReturnedGoods(S_returned_goods goods){
+    return service.addReturnedGoods(goods);
+  }
+
+  /**
    * 获取所有隐形眼镜质量投诉处理记录
+   *
    * @return {@link S_complaint_record} 隐形眼镜质量投诉处理记录
    */
   @RequestMapping("/getComplaintRecord.do")
   @ResponseBody
-  public List<S_complaint_record> getComplaintRecord(){
+  public List<S_complaint_record> getComplaintRecord() {
     return service.getComplaintRecord();
   }
 
   /**
+   * 增加隐形眼镜质量投诉处理记录
+   *
+   * @param record {@link S_complaint_record}隐形眼镜质量投诉处理记录
+   * @return {@link Boolean} true添加成功 false 添加失败
+   */
+  @RequestMapping("/addComplaintRecord.do")
+  @ResponseBody
+  public boolean addComplaintRecord(S_complaint_record record){
+    return service.addComplaintRecord(record);
+  }
+
+  /**
    * 获取所有售后服务记录
+   *
    * @return {@link S_after_sale_service} 售后服务记录
    */
   @RequestMapping("/getAfterSaleService.do")
   @ResponseBody
-  public List<S_after_sale_service> getAfterSaleService(){
+  public List<S_after_sale_service> getAfterSaleService() {
     return service.getAfterSaleService();
   }
+
+  /**
+   * 增加售后服务记录
+   *
+   * @param afterSaleService {@link S_after_sale_service} 售后服务记录
+   * @return {@link Boolean} true添加成功 false 添加失败
+   */
+  @RequestMapping("/addAfterSaleService.do")
+  @ResponseBody
+  public boolean addAfterSaleService(S_after_sale_service afterSaleService){
+    return service.addAfterSaleService(afterSaleService);
+  }
+
 
 }
 

@@ -3,9 +3,11 @@ package com.liangjing.www.service;
 import com.liangjing.www.dao.C_contact_lens_clerkMapper;
 import com.liangjing.www.dao.C_contact_lens_managerMapper;
 import com.liangjing.www.dao.C_optometristMapper;
+import com.liangjing.www.dao.StaffMapper;
 import com.liangjing.www.model.C_contact_lens_clerk;
 import com.liangjing.www.model.C_contact_lens_manager;
 import com.liangjing.www.model.C_optometrist;
+import com.liangjing.www.model.Staff;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -26,6 +28,9 @@ public class StaffService {
 
   @Resource
   private C_optometristMapper optometristMapper;
+
+  @Resource
+  private StaffMapper staffMapper;
 
   /**
    * 获取所有角膜接触镜营业员
@@ -50,4 +55,9 @@ public class StaffService {
   public List<C_optometrist> allallOptometrist() {
     return optometristMapper.allOptometrist();
   }
+
+  public List<Staff> allStaff() {
+    return staffMapper.allStaff();
+  }
+
 }

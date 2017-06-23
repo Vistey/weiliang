@@ -22,4 +22,6 @@ public interface R_medical_device_licenseMapper {
   R_medical_device_license getOurMedicalLicense(String workUnit);
 
   List<R_medical_device_license> getGmpMedicalLicense(String workUnit);
+
+  List<String> getCertificateExpired();
 }

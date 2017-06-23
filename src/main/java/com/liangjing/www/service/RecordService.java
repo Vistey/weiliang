@@ -3,8 +3,10 @@ package com.liangjing.www.service;
 import com.liangjing.www.dao.*;
 import com.liangjing.www.model.*;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -29,17 +31,16 @@ public class RecordService {
   private S_cultivate_personlistMapper cultivate_personlistMapper;
 
   @Resource
-  private S_nonconformity_recordMapper nonconformity_record;
+  private S_after_sale_serviceMapper afterSaleServiceMapper;
 
   @Resource
-  private S_returned_goodsMapper returned_goodsMapper;
+  private S_nonconformity_recordMapper nonconformityRecordMapper;
 
   @Resource
-  private S_complaint_recordMapper complaint_recordMapper;
+  private S_returned_goodsMapper returnedGoodsMapper;
 
   @Resource
-  private S_after_sale_serviceMapper after_sale_serviceMapper;
-
+  private S_complaint_recordMapper complaintRecordMapper;
 
   /**
    * 获取所有入库记录
@@ -119,6 +120,22 @@ public class RecordService {
   }
 
   /**
+   * 添加培训计划表
+   *
+   * @param cultivateRecord {@link S_cultivate_record}培训计划表
+   * @return {@link Boolean} true添加成功 false 添加失败
+   */
+  @Transactional
+  public boolean addTrainingPlan(S_cultivate_record cultivateRecord){
+    cultivate_recordMapper.insertSelectiveBackId(cultivateRecord);
+    for (S_cultivate_personlist list : cultivateRecord.getPersonlists()){
+      list.setCultivateId(cultivateRecord.getId());
+      cultivate_personlistMapper.insertSelective(list);
+    }
+    return true;
+  }
+
+  /**
    * 培训计划表与员工数据匹配（一对多表赋值）
    *
    * @param cultivateRecord     培训计划表
@@ -147,7 +164,7 @@ public class RecordService {
    * @return {@link S_nonconformity_record} 不合格产品记录
    */
   public List<S_nonconformity_record> getNonconformity() {
-    return nonconformity_record.getAll();
+    return nonconformityRecordMapper.getAll();
   }
 
   /**
@@ -155,7 +172,7 @@ public class RecordService {
    * @return {@link S_returned_goods} 顾客退换片记录
    */
   public List<S_returned_goods> getReturnedGoods() {
-    return returned_goodsMapper.getAll();
+    return returnedGoodsMapper.getAll();
   }
 
   /**
@@ -163,7 +180,7 @@ public class RecordService {
    * @return {@link S_complaint_record} 隐形眼镜质量投诉处理记录
    */
   public List<S_complaint_record> getComplaintRecord() {
-    return complaint_recordMapper.getAll();
+    return complaintRecordMapper.getAll();
   }
 
   /**
@@ -171,6 +188,49 @@ public class RecordService {
    * @return {@link S_after_sale_service} 售后服务记录
    */
   public List<S_after_sale_service> getAfterSaleService() {
-    return after_sale_serviceMapper.getAll();
+    return afterSaleServiceMapper.getAll();
+  }
+
+  /**
+   * 增加不合格产品记录
+   *
+   * @param record {@link S_nonconformity_record} 不合格产品记录
+   * @return {@link Boolean} true添加成功 false 添加失败
+   */
+  public boolean addNonconformity(S_nonconformity_record record) {
+    record.setToday(new Date());
+    return nonconformityRecordMapper.insertSelective(record) == 1;
+  }
+
+  /**
+   * 增加顾客退换片记录
+   *
+   * @param goods {@link S_returned_goods} 顾客退换片记录
+   * @return {@link Boolean} true添加成功 false 添加失败
+   */
+  public boolean addReturnedGoods(S_returned_goods goods) {
+    return returnedGoodsMapper.insertSelective(goods) == 1;
+  }
+
+  /**
+   * 增加隐形眼镜质量投诉处理记录
+   *
+   * @param record {@link S_complaint_record}隐形眼镜质量投诉处理记录
+   * @return {@link Boolean} true添加成功 false 添加失败
+   */
+  public boolean addComplaintRecord(S_complaint_record record) {
+    record.setDate(new Date());
+    return complaintRecordMapper.insertSelective(record) == 1;
+  }
+
+  /**
+   * 增加售后服务记录
+   *
+   * @param afterSaleService {@link S_after_sale_service} 售后服务记录
+   * @return {@link Boolean} true添加成功 false 添加失败
+   */
+  public boolean addAfterSaleService(S_after_sale_service afterSaleService) {
+    afterSaleService.setDate(new Date());
+    return afterSaleServiceMapper.insertSelective(afterSaleService) == 1;
   }
 }

@@ -90,4 +90,5 @@ public class S_after_sale_service {
     public void setRemarks(String remarks) {
         this.remarks = remarks;
     }
+
 }

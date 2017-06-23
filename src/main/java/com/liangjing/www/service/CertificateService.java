@@ -5,6 +5,7 @@ import com.liangjing.www.model.*;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,6 +31,7 @@ public class CertificateService {
 
   /**
    * 获取本公司营业执照
+   *
    * @param workUnit 本公司名字
    * @return {@link R_business_license}本公司营业执照数据
    */
@@ -39,6 +41,7 @@ public class CertificateService {
 
   /**
    * 获取首营公司营业执照
+   *
    * @param workUnit 本公司名字（用于在结果集中排除）
    * @return {@link R_business_license}首营公司营业执照数据
    */
@@ -48,6 +51,7 @@ public class CertificateService {
 
   /**
    * 增加公司营业执照
+   *
    * @param license {@link R_business_license} 营业执照数据
    * @return {@link Boolean} true添加成功 false 添加失败
    */
@@ -58,6 +62,7 @@ public class CertificateService {
 
   /**
    * 获取本公司医疗器械营业执照
+   *
    * @param workUnit 本公司名字
    * @return {@link R_medical_device_license}本公司医疗器械营业执照数据
    */
@@ -67,6 +72,7 @@ public class CertificateService {
 
   /**
    * 获取首营公司医疗器械营业执照
+   *
    * @param workUnit 本公司名字（用于在结果集中排除）
    * @return {@link R_medical_device_license}首营公司医疗器械营业执照数据
    */
@@ -76,6 +82,7 @@ public class CertificateService {
 
   /**
    * 增加医疗器械经营许可证
+   *
    * @param license {@link R_medical_device_license} 医疗器械经营许可证
    * @return {@link Boolean} true添加成功 false 添加失败
    */
@@ -85,6 +92,7 @@ public class CertificateService {
 
   /**
    * 获取所有授权书
+   *
    * @return {@link R_certificate_of_authorization}授权书数据
    */
   public List<R_certificate_of_authorization> getCertificateOfAuthorization() {
@@ -93,15 +101,17 @@ public class CertificateService {
 
   /**
    * 增加授权书
+   *
    * @param authorization {@link R_certificate_of_authorization}授权书数据
    * @return {@link Boolean} true添加成功 false 添加失败
    */
-  public boolean addAuthorization(R_certificate_of_authorization authorization){
+  public boolean addAuthorization(R_certificate_of_authorization authorization) {
     return certificateAuthorization.insertSelective(authorization) == 1;
   }
 
   /**
    * 获取所有医疗器械注册证
+   *
    * @return {@link R_medical_device_registration}医疗器械注册证数据
    */
   public List<R_medical_device_registration> getMedicalDeviceRegistration() {
@@ -110,15 +120,17 @@ public class CertificateService {
 
   /**
    * 增加医疗器械注册证
+   *
    * @param rMedicalDeviceRegistration {@link R_medical_device_registration}医疗器械注册证
    * @return {@link Boolean} true添加成功 false 添加失败
    */
-  public boolean addGmpMedicalregistration(R_medical_device_registration rMedicalDeviceRegistration){
+  public boolean addGmpMedicalregistration(R_medical_device_registration rMedicalDeviceRegistration) {
     return medicalDeviceRegistration.insertSelective(rMedicalDeviceRegistration) == 1;
   }
 
   /**
    * 获取所有公司列表
+   *
    * @return 返回所有公司列表
    */
   public List<String> getcompanyName() {
@@ -127,6 +139,7 @@ public class CertificateService {
 
   /**
    * 添加公司
+   *
    * @param companyname 添加的公司名
    * @return {@link Boolean} true添加成功 false 添加失败
    */
@@ -134,6 +147,31 @@ public class CertificateService {
     return companyMapper.addcompany(companyname) == 1;
   }
 
-
-
+  /**
+   * 获取已过期证书列表
+   *
+   * @return {@link String} 过去证书（证书类型--公司名）
+   */
+  public List<String> getCertificateExpired() {
+    List<String> list = new ArrayList<>();
+    List<String> ca = certificateAuthorization.getCertificateExpired();
+    List<String> ml = medicalLicenseMapper.getCertificateExpired();
+    List<String> mr = medicalDeviceRegistration.getCertificateExpired();
+    if (ml.size() > 0){
+      for (String tmp : ml){
+        list.add("医疗器械许可证--" + tmp);
+      }
+    }
+    if (ca.size() > 0) {
+      for (String tmp : ca) {
+        list.add("授权书--" + tmp);
+      }
+    }
+    if (mr.size() > 0){
+      for (String tmp : mr){
+        list.add("医疗器械注册证--" + tmp);
+      }
+    }
+    return list;
+  }
 }

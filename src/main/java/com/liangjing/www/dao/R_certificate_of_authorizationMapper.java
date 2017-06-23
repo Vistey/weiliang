@@ -20,4 +20,6 @@ public interface R_certificate_of_authorizationMapper {
   int updateByPrimaryKey(R_certificate_of_authorization record);
 
   List<R_certificate_of_authorization> getCertificateOfAuthorization();
+
+  List<String> getCertificateExpired();
 }

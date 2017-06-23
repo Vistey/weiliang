@@ -69,9 +69,6 @@
                 <li>
                     <a href="personnel_management.html"><i class="fa fa-user"></i> <span class="nav-label">人员管理</span></a>
                 </li>
-                <li>
-                    <a href="indexwwwww.html"><i class="fa fa-desktop"></i> <span class="nav-label">系统维护</span></a>
-                </li>
             </ul>
 
         </div>
@@ -91,45 +88,18 @@
                         <a class="dropdown-toggle count-info" data-toggle="dropdown">
                             <i class="fa fa-bell"></i>
                             <!--TODO 信息总数-->
-                            <span class="label label-primary">8</span>
+                            <span class="label badge-danger" id="promptList">1</span>
                         </a>
                         <!--TODO 下面的内容需要调整-->
-                        <ul class="dropdown-menu dropdown-alerts">
+                        <ul class="dropdown-menu dropdown-alerts" id="shouList">
                             <li>
-                                <a href="mailbox.html">
-                                    <div>
-                                        <i class="fa fa-envelope fa-fw"></i> You have 16 messages
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="profile.html">
-                                    <div>
-                                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                        <span class="pull-right text-muted small">12 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="grid_options.html">
-                                    <div>
-                                        <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <div class="text-center link-block">
-                                    <a href="notifications.html">
-                                        <strong>See All Alerts</strong>
-                                        <i class="fa fa-angle-right"></i>
-                                    </a>
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i>证件过期
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
                                 </div>
                             </li>
+                            <li class="divider"></li>
+
                         </ul>
                     </li>
 
@@ -153,15 +123,15 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5>增加销售记录</h5>
-                            <div class="ibox-tools">
-                                <a class="collapse-link">
+                        <a class="collapse-link">
+                            <div class="ibox-title">
+                                <h5>增加销售记录</h5>
+                                <div class="ibox-tools">
                                     <i class="fa fa-chevron-up"></i>
-                                </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="ibox-content">
+                        </a>
+                        <div class="ibox-content" style="display:none">
                             <form id="addlistform0">
                                 <div class="col-md-4">
                                     <div class="form-group" id="commodityName0">
@@ -216,15 +186,15 @@
                 </div>
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5>增加库存记录</h5>
-                            <div class="ibox-tools">
-                                <a class="collapse-link">
+                        <a class="collapse-link">
+                            <div class="ibox-title">
+                                <h5>增加库存记录</h5>
+                                <div class="ibox-tools">
                                     <i class="fa fa-chevron-up"></i>
-                                </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="ibox-content">
+                        </a>
+                        <div class="ibox-content" style="display:none">
                             <form id="addlistform1">
                                 <div class="col-md-4">
 
@@ -300,14 +270,611 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <a class="collapse-link">
+                            <div class="ibox-title">
+                                <h5>增加质量跟踪记录</h5>
+                                <div class="ibox-tools">
+                                    <i class="fa fa-chevron-up"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="ibox-content" style="display:none">
+                            <form id="addlistform2">
+                                <div class="col-md-4">
+
+                                    <!--<div class="form-group" id="commodityName2">
+                                        <label>商品类型</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="toasts" value="success" checked/>隐形眼镜
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label class="radio">
+                                                <input type="radio" name="toasts" value="info"/>护理液
+                                            </label>
+                                        </div>
+                                    </div>-->
+                                    <div class="form-group" id="positionGroup2">
+                                        <label>批号</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="positions" value="toast-top-right" checked/>无
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="companyName2">
+                                        <span>供应商:由系统生成</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group" id="traceRecord2">
+                                        <span>销售记录</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <span>顾客反馈内容:<textarea name="feedback" class="form-control" rows="6"
+                                                               placeholder=""></textarea></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>规格</label>
+                                        <div class="radio">
+                                            <input type="text" name="specifications" title=""/>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" value="1" name="state">
+                                    <button type="button" id="addlist2" class="btn btn-w-m btn-primary">提交</button>
+                                </div>
+
+                                <div style="clear: both"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <a class="collapse-link">
+                            <div class="ibox-title">
+                                <h5>增加培训计划表</h5>
+                                <div class="ibox-tools">
+                                    <i class="fa fa-chevron-up"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="ibox-content" style="display:none">
+                            <form id="addlistform3">
+                                <div class="col-md-4">
+
+                                    <div class="form-group" id="positionGroup3">
+                                        <label>培训内容</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="cultivateContent"/>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <span>培训时间:
+                                            <input type="text" name="cultivateDate" placeholder="格式：2016-01-01" title="">
+                                        </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <span>培训方式：
+                                            <input type="text" name="cultivateWay" title="">
+                                        </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <span>培训地点：
+                                            <input type="text" name="cultivateAddress" title="">
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group" id="personlists3">
+                                        <span>培训人员</span>
+                                    </div>
+                                    <button type="button" id="addlist3" class="btn btn-w-m btn-primary">提交</button>
+                                </div>
+
+                                <div style="clear: both"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <a class="collapse-link">
+                            <div class="ibox-title">
+                                <h5>增加不合格产品记录表</h5>
+                                <div class="ibox-tools">
+                                    <i class="fa fa-chevron-up"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="ibox-content" style="display:none">
+                            <form id="addlistform4">
+                                <div class="col-md-4">
+
+                                    <div class="form-group" id="positionGroup4">
+                                        <label>批号</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="positions"/>无
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>货品名称</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="descriptionGoods"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>合同号</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="contract"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>生产商</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="manufacturer"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>质量问题</label>
+                                        <div class="radio">
+                                                <textarea name="qualityProblem" class="form-control" rows="6"
+                                                          placeholder=""></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>验收员建议</label>
+                                        <div class="radio">
+                                                <textarea name="inspectorSuggested" class="form-control" rows="6"
+                                                          placeholder=""></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>审核人结论</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="auditConclusion"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>事后跟踪</label>
+                                        <div class="radio">
+                                            <textarea name="eventTracking" class="form-control" rows="6"
+                                                      placeholder=""></textarea>
+                                        </div>
+                                    </div>
+                                    <button type="button" id="addlist4" class="btn btn-w-m btn-primary">提交</button>
+                                </div>
+
+                                <div style="clear: both"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <a class="collapse-link">
+                            <div class="ibox-title">
+                                <h5>增加顾客退片/换片记录单</h5>
+                                <div class="ibox-tools">
+                                    <i class="fa fa-chevron-up"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="ibox-content" style="display:none">
+                            <form id="addlistform5">
+                                <div class="col-md-4">
+
+                                    <div class="form-group">
+                                        <label>顾客电话</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="customerPhone"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>顾客邮编</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="customerPostcard"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>顾客地址</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="customerAddress"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>镜片批号左</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="batchNumberL"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>镜片批号右</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="batchNumberR"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>镜片光度左</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="glassesDegreeL"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>镜片光度右</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="glassesDegreeR"/>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>配镜日期</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="opticianDate" placeholder="格式：2016-01-01"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>退片日期</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="returnedDate" placeholder="格式：2016-01-01"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>经办人</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="handler"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>退片原因</label>
+                                        <div class="radio">
+                                                <textarea name="returnedReason" class="form-control" rows="6"
+                                                          placeholder=""></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>经办人调查结果</label>
+                                        <div class="radio">
+                                                <textarea name="handlerFindings" class="form-control" rows="6"
+                                                          placeholder=""></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>质量员确认结果</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="qualityController"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <button type="button" id="addlist5" class="btn btn-w-m btn-primary">提交</button>
+                                </div>
+
+                                <div style="clear: both"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <a class="collapse-link">
+                            <div class="ibox-title">
+                                <h5>增加隐形眼镜质量投诉处理记录表</h5>
+                                <div class="ibox-tools">
+                                    <i class="fa fa-chevron-up"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="ibox-content" style="display:none">
+                            <form id="addlistform6">
+                                <div class="col-md-4">
+
+                                    <div class="form-group">
+                                        <label>顾客姓名</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="customer"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>联系方式</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="customerContact"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>商店名称</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="shopName"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>联系方式</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="shopContact"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>购买日期</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="buyTime" placeholder="格式：2016-01-01"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>投诉日期</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="complaintTime" placeholder="格式：2016-01-01"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>镜片品牌及型号</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="typeSpecification"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>镜片数量</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="glassesNumber"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>标示度数</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="markDegree"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>镜片批号</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="lensNumber"/>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>佩戴史</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="wearHistory" value="1"/>是<br/>
+                                                <input type="radio" name="wearHistory" value="0"/>否<br/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>原配品牌及型号</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="originalBrandModels"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>原眼镜度数左</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="originalGlassesNumberL"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>原眼镜度数右</label>
+                                        <div class="radio">
+                                            <input type="text" name="originalGlassesNumberR" title=""/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>验光结果左</label>
+                                        <div class="radio">
+                                            <input type="text" name="optometryDegreeL" title=""/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>验光结果右</label>
+                                        <div class="radio">
+                                            <input type="text" name="optometryDegreeR" title=""/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>佩戴结果左</label>
+                                        <div class="radio">
+                                            <input type="text" name="wearSightL" title=""/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>佩戴结果右</label>
+                                        <div class="radio">
+                                            <input type="text" name="wearSightR" title=""/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>顾客投诉内容</label>
+                                        <div class="radio">
+                                                <textarea name="customerComplaintContent" class="form-control" rows="3"
+                                                          placeholder=""></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>商店检查结果</label>
+                                        <div class="radio">
+                                                <textarea name="storeExaminationResult" class="form-control" rows="3"
+                                                          placeholder=""></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>镜片检查结果</label>
+                                        <div class="radio">
+                                                <textarea name="glassesExaminationResult" class="form-control" rows="3"
+                                                          placeholder=""></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>检查员</label>
+                                        <div class="radio">
+                                            <input type="text" name="procurator" title=""/>
+                                        </div>
+                                    </div>
+                                    <button type="button" id="addlist6" class="btn btn-w-m btn-primary">提交</button>
+                                </div>
+
+                                <div style="clear: both"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <a class="collapse-link">
+                            <div class="ibox-title">
+                                <h5>增加售后服务记录单</h5>
+                                <div class="ibox-tools">
+                                    <i class="fa fa-chevron-up"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="ibox-content" style="display:none">
+                            <form id="addlistform7">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>顾客内容摘要</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="customerContent"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>处理方式</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="treatmentMode"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>处理单编号</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="processingSheet"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>处理员</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="handlers"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>结案日期</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="text" name="closeDate" placeholder="格式：2016-01-01"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>备注</label>
+                                        <div class="radio">
+                                            <textarea name="remarks" class="form-control" rows="3"
+                                                      placeholder=""></textarea>
+                                        </div>
+                                    </div>
+                                    <button type="button" id="addlist7" class="btn btn-w-m btn-primary">提交</button>
+                                </div>
+
+                                <div style="clear: both"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="footer">
+    <!--<div class="footer">
         <div>
             <strong>Copyright from </strong> 上海亮睛眼镜商店 &copy; 2017
         </div>
-    </div>
+    </div>-->
 </div>
 </body>
 
@@ -345,12 +912,17 @@
                 console.log(data);
                 var json = jQuery.parseJSON(data);
                 var tmp = '<span>生产厂商</span><br/>';
+                var tmp2 = '<span>供应商</span><br/>';
                 for (var i = 0; i < json.length; i++) {
                     tmp += '<label>' +
                         '<input type="radio" name="companyName" value="' + json[i] + '"/>' + json[i] +
                         '</label><br/>';
+                    tmp2 += '<label>' +
+                        '<input type="radio" name="companyName" value="' + json[i] + '"/>' + json[i] +
+                        '</label><br/>';
                 }
                 $("#companyName1").html(tmp);
+                $("#companyName2").html(tmp2);
             }
         });
         $.ajax({
@@ -361,14 +933,59 @@
                 var tmp = '<label>批号</label><br/>';
                 for (var i = 0; i < json.length; i++) {
                     tmp += '<label>' +
-                        '<input type="radio" name="batchNumber" value="'+ json[i] +'"/>' + json[i] +
+                        '<input type="radio" name="batchNumber" value="' + json[i] + '"/>' + json[i] +
                         '</label><br/>';
                 }
                 $("#positionGroup0").html(tmp);
+                $("#positionGroup2").html(tmp);
+                $("#positionGroup4").html(tmp);
+            }
+        });
+        $.ajax({
+            url: 'recordController/getTraceRecord.do',
+            success: function (data) {
+                console.log(data);
+                var json = jQuery.parseJSON(data);
+                var tmp = '<span>销售记录</span><br/>';
+                for (var i = 0; i < json.length; i++) {
+                    tmp += '<label> ' +
+                        '<input type="radio" name="saleId" value="' + json[i].saleId + '" />销售日期：' + json[i].saleDate +
+                        '  有效期： ' + json[i].termOfValidity + '</label></div>';
+                }
+                $('#traceRecord2').html(tmp);
+            }
+        });
+        $.ajax({
+            url: 'staff/allStaff.do',
+            success: function (data) {
+                console.log(data);
+                var json = jQuery.parseJSON(data);
+                var tmp = '<span>培训人员</span><br/>';
+                for (var i = 0; i < json.length; i++) {
+                    tmp += '<input type="checkbox" name="personlists[' + i + '].cultivateName" value="' + json[i].name + '">' + json[i].name + '<br/>';
+                }
+                $('#personlists3').html(tmp);
             }
         });
 
 
+
+    });
+
+    $('#addlist0').click(function () {
+        $.ajax({
+            type: 'post',
+            url: 'recordController/addSales.do',
+            data: $('#addlistform0').serialize(),
+            success: function (data) {
+                if (data) {
+                    alert("添加成功");
+                }
+            },
+            error: function () {
+                alert("输入错误");
+            }
+        })
     });
 
     $('#addlist1').click(function () {
@@ -387,11 +1004,11 @@
         })
     });
 
-    $('#addlist0').click(function () {
+    $('#addlist2').click(function () {
         $.ajax({
-            type:'post',
-            url:'recordController/addSales.do',
-            data:$('#addlistform0').serialize(),
+            type: 'post',
+            url: 'recordController/addTraceRecord.do',
+            data: $('#addlistform2').serialize(),
             success: function (data) {
                 if (data) {
                     alert("添加成功");
@@ -401,7 +1018,87 @@
                 alert("输入错误");
             }
         })
-    })
+    });
+
+    $('#addlist3').click(function () {
+        $.ajax({
+            type: 'post',
+            url: 'recordController/addTrainingPlan.do',
+            data: $('#addlistform3').serialize(),
+            success: function (data) {
+                if (data) {
+                    alert("添加成功");
+                }
+            },
+            error: function () {
+                alert("输入错误");
+            }
+        })
+    });
+
+    $('#addlist4').click(function () {
+        $.ajax({
+            type: 'post',
+            url: 'recordController/addNonconformity.do',
+            data: $('#addlistform4').serialize(),
+            success: function (data) {
+                if (data) {
+                    alert("添加成功");
+                }
+            },
+            error: function () {
+                alert("输入错误");
+            }
+        })
+    });
+
+    $('#addlist5').click(function () {
+        $.ajax({
+            type: 'post',
+            url: 'recordController/addReturnedGoods.do',
+            data: $('#addlistform5').serialize(),
+            success: function (data) {
+                if (data) {
+                    alert("添加成功");
+                }
+            },
+            error: function () {
+                alert("输入错误");
+            }
+        })
+    });
+
+    $('#addlist6').click(function () {
+        $.ajax({
+            type: 'post',
+            url: 'recordController/addComplaintRecord.do',
+            data: $('#addlistform6').serialize(),
+            success: function (data) {
+                if (data) {
+                    alert("添加成功");
+                }
+            },
+            error: function () {
+                alert("输入错误");
+            }
+        })
+    });
+
+    $('#addlist7').click(function () {
+        $.ajax({
+            type: 'post',
+            url: 'recordController/addAfterSaleService.do',
+            data: $('#addlistform7').serialize(),
+            success: function (data) {
+                if (data) {
+                    alert("添加成功");
+                }
+            },
+            error: function () {
+                alert("输入错误");
+            }
+        })
+    });
 
 </script>
 

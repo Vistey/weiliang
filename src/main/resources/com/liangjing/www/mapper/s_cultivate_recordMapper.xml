@@ -1,91 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liangjing.www.dao.S_cultivate_recordMapper">
-  <resultMap id="BaseResultMap" type="com.liangjing.www.model.S_cultivate_record">
-    <id column="ID" jdbcType="INTEGER" property="id" />
-    <result column="cultivate_content" jdbcType="VARCHAR" property="cultivateContent" />
-    <result column="cultivate_date" jdbcType="TIMESTAMP" property="cultivateDate" />
-    <result column="cultivate_way" jdbcType="VARCHAR" property="cultivateWay" />
-    <result column="cultivate_address" jdbcType="VARCHAR" property="cultivateAddress" />
-  </resultMap>
-  <sql id="Base_Column_List">
+    <resultMap id="BaseResultMap" type="com.liangjing.www.model.S_cultivate_record">
+        <id column="ID" jdbcType="INTEGER" property="id"/>
+        <result column="cultivate_content" jdbcType="VARCHAR" property="cultivateContent"/>
+        <result column="cultivate_date" jdbcType="TIMESTAMP" property="cultivateDate"/>
+        <result column="cultivate_way" jdbcType="VARCHAR" property="cultivateWay"/>
+        <result column="cultivate_address" jdbcType="VARCHAR" property="cultivateAddress"/>
+    </resultMap>
+    <sql id="Base_Column_List">
     ID, cultivate_content, cultivate_date, cultivate_way, cultivate_address
   </sql>
-  <select id="getAll" resultMap="BaseResultMap">
+    <select id="getAll" resultMap="BaseResultMap">
     SELECT * FROM s_cultivate_record ORDER BY ID ASC
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from s_cultivate_record
-    where ID = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from s_cultivate_record
+        where ID = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from s_cultivate_record
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.liangjing.www.model.S_cultivate_record">
+    <insert id="insertSelectiveBackId" parameterType="com.liangjing.www.model.S_cultivate_record"
+            useGeneratedKeys="true" keyProperty="id">
+        insert into s_cultivate_record (cultivate_content, cultivate_date,
+      cultivate_way, cultivate_address)
+    values (#{cultivateContent,jdbcType=VARCHAR}, #{cultivateDate,jdbcType=TIMESTAMP},
+      #{cultivateWay,jdbcType=VARCHAR}, #{cultivateAddress,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insert" parameterType="com.liangjing.www.model.S_cultivate_record">
     insert into s_cultivate_record (ID, cultivate_content, cultivate_date, 
       cultivate_way, cultivate_address)
     values (#{id,jdbcType=INTEGER}, #{cultivateContent,jdbcType=VARCHAR}, #{cultivateDate,jdbcType=TIMESTAMP}, 
       #{cultivateWay,jdbcType=VARCHAR}, #{cultivateAddress,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.liangjing.www.model.S_cultivate_record">
-    insert into s_cultivate_record
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        ID,
-      </if>
-      <if test="cultivateContent != null">
-        cultivate_content,
-      </if>
-      <if test="cultivateDate != null">
-        cultivate_date,
-      </if>
-      <if test="cultivateWay != null">
-        cultivate_way,
-      </if>
-      <if test="cultivateAddress != null">
-        cultivate_address,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="cultivateContent != null">
-        #{cultivateContent,jdbcType=VARCHAR},
-      </if>
-      <if test="cultivateDate != null">
-        #{cultivateDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="cultivateWay != null">
-        #{cultivateWay,jdbcType=VARCHAR},
-      </if>
-      <if test="cultivateAddress != null">
-        #{cultivateAddress,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.liangjing.www.model.S_cultivate_record">
-    update s_cultivate_record
-    <set>
-      <if test="cultivateContent != null">
-        cultivate_content = #{cultivateContent,jdbcType=VARCHAR},
-      </if>
-      <if test="cultivateDate != null">
-        cultivate_date = #{cultivateDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="cultivateWay != null">
-        cultivate_way = #{cultivateWay,jdbcType=VARCHAR},
-      </if>
-      <if test="cultivateAddress != null">
-        cultivate_address = #{cultivateAddress,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where ID = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.liangjing.www.model.S_cultivate_record">
+    <insert id="insertSelective" parameterType="com.liangjing.www.model.S_cultivate_record">
+        insert into s_cultivate_record
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="cultivateContent != null">
+                cultivate_content,
+            </if>
+            <if test="cultivateDate != null">
+                cultivate_date,
+            </if>
+            <if test="cultivateWay != null">
+                cultivate_way,
+            </if>
+            <if test="cultivateAddress != null">
+                cultivate_address,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="cultivateContent != null">
+                #{cultivateContent,jdbcType=VARCHAR},
+            </if>
+            <if test="cultivateDate != null">
+                #{cultivateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="cultivateWay != null">
+                #{cultivateWay,jdbcType=VARCHAR},
+            </if>
+            <if test="cultivateAddress != null">
+                #{cultivateAddress,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.liangjing.www.model.S_cultivate_record">
+        update s_cultivate_record
+        <set>
+            <if test="cultivateContent != null">
+                cultivate_content = #{cultivateContent,jdbcType=VARCHAR},
+            </if>
+            <if test="cultivateDate != null">
+                cultivate_date = #{cultivateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="cultivateWay != null">
+                cultivate_way = #{cultivateWay,jdbcType=VARCHAR},
+            </if>
+            <if test="cultivateAddress != null">
+                cultivate_address = #{cultivateAddress,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.liangjing.www.model.S_cultivate_record">
     update s_cultivate_record
     set cultivate_content = #{cultivateContent,jdbcType=VARCHAR},
       cultivate_date = #{cultivateDate,jdbcType=TIMESTAMP},

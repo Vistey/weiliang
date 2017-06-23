@@ -3,6 +3,8 @@ package com.liangjing.www.dao;
 import com.liangjing.www.model.Staff;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface StaffMapper {
 
@@ -23,4 +25,6 @@ public interface StaffMapper {
   String getWorkUnit(Staff staff);
 
   String getName(String idCard);
+
+  List<Staff> allStaff();
 }

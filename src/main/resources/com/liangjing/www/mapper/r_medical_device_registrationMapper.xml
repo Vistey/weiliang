@@ -26,6 +26,9 @@
     enclosure, remarks, approval_date, valid_from, valid_until, scanning_url, state
   </sql>
 
+  <select id="getCertificateExpired" resultType="String">
+    SELECT registration_name FROM r_medical_device_registration WHERE valid_until &lt; now()
+  </select>
   <select id="getMedicalDeviceRegistration" resultType="com.liangjing.www.model.R_medical_device_registration">
     SELECT
       credit_code creditCode,
